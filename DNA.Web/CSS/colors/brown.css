@@ -1,0 +1,181 @@
+a:hover, a:focus {
+	color: #964b00;
+}
+.site_logo {
+	background: url(../../images/colors/brown/logo.jpg) no-repeat left top;
+}
+.site_logo h1 i {
+	color: #964b00;
+}
+#access .menu ul li a.active {
+	background: #964b00;
+}
+#access .menu ul li ul li a:hover,
+#access .menu ul li ul li.active a,
+#access .menu ul li ul li a.selected {
+	background: #964b00 url(../images/spacer.gif) no-repeat center bottom;
+}
+.iosSlider .slider .item .inner .text2 span {
+	color: #964b00;
+}
+.iosSlider .slider .item .inner a.morebut {
+	background: url(../../images/colors/brown/mainslider-morebut-bg.png) no-repeat left top;
+}
+.iosSlider .slider .item .inner a.morebut:hover {
+	color: #ffe3c8;
+}
+a.readmore_02 {
+	color: #fff;
+	background-color: #964b00;
+}
+a.readmore_02:hover {
+	color: #fff;
+	background-color: #a65300;
+}
+.acc-trigger a { background: url(../../images/colors/brown/accordion-ico.png) no-repeat 20px 13px;}
+.acc-trigger a:hover, .acc-trigger.active a, .acc-trigger.active a:hover { color: #964b00; border-bottom: 1px solid #fff;  }
+
+a.knowmore_but {
+	color: #fff;
+	background-color: #964b00;
+	border-bottom: 1px solid #999;
+}
+a.knowmore_but:hover {
+	color: #fff;
+	background-color: #a65300;
+}
+.punchline_text {
+	border-left: 5px solid #964b00;
+}
+.fresh_works_content h3 {
+	background: #964b00 url(../../images/carve-02.png) no-repeat right bottom;
+}
+.site_features_main li:hover {
+	border-right: 1px solid #964b00;
+	border-bottom: 5px solid #964b00;
+	background: #fff url(../../images/colors/brown/carve-01.png) no-repeat right bottom;
+}
+a.readmore_01:hover {
+	color: #a65300;
+	background: url(../../images/colors/brown/arrow-02.png) no-repeat 45px 7px;
+}
+.latest_blogs_list li.title a:hover {
+	color: #964b00;
+}
+.latest_blogs_list li.content a {
+	color: #964b00;
+}
+.latest_blogs_list li.content a:hover {
+	color: #454545;
+}
+.tp-caption.big_orange{
+	background-color:#964b00;
+}
+.fullwidthbanner-container a {
+	color: #964b00;
+}
+.fullwidthbanner-container a:hover {
+	color: #454545;
+}
+.nivo-caption {
+	border-left: 5px solid #964b00;
+}
+blockquote {
+	border-left: 5px solid #964b00;
+}
+.pricing-tables-helight .title {
+	background-color: #8d4600;
+	border-top: 3px solid #844200;
+	border-bottom: 1px solid #a85400;
+}
+.pricing-tables-helight .price {
+	background-color: #964b00;
+}
+.button.small.colorchan{
+	color: #fff;
+	background-color: #964b00;
+}
+.pricing-tables-helight-two .title {
+	background-color: #8d4600;
+	border-top: 3px solid #844200;
+	border-bottom: 1px solid #a85400;
+}
+.pricing-tables-helight-two .price {
+	background-color: #964b00;
+}
+.button.small.colorchan{
+	color: #fff;
+	background-color: #964b00;
+}
+html ul.tabs li.active, html ul.tabs li.active a,  html ul.tabs li.active a:hover  { 
+	border-top: 2px solid #964b00;
+}
+html ul.tabs-two li.active, html ul.tabs-two li.active a,  html ul.tabs-two li.active a:hover  { 
+	color:#964b00;
+}
+.big_text1 i {
+	color: #964b00;
+}
+.sidebar_widget ul.arrows_list1 li a:hover {
+	color: #964b00;
+}
+.recent_posts_list li a:hover {
+	color: #964b00;
+}
+a.but_goback {
+	background: #964b00 url(../../images/arrow_left.png) no-repeat 18px 13px;
+	border-bottom: 1px solid #999;
+}
+a.but_goback:hover {
+	color: #fff;
+	background-color: #a65300;
+}
+a.but_hand_right {
+	background: #964b00 url(../../images/elements/hand_right.png) no-repeat 16px 12px;
+	border-bottom: 1px solid #999;
+}
+a.but_hand_right:hover {
+	color: #fff;
+	background-color: #a65300;
+}
+#site-searchform #searchsubmit{
+	background: #964b00 url(../../images/site-search-icon.png) no-repeat center 9px;
+}
+.blog_post h3 a:hover {
+	color: #964b00;
+}
+.about_author a {
+	color: #964b00;
+}
+.about_author a:hover {
+	color: #454545;
+}
+.address-info a {
+	color: #964b00;
+}
+.address-info a:hover {
+	color: #454545;
+}
+.slider_static_image b {
+	color: #964b00;
+}
+.slider_static_image a.slider_static_morebut {
+	background: url(../../images/colors/brown/mainslider-morebut-bg.png) no-repeat left top;
+}
+.slider_static_image a.slider_static_morebut:hover {
+	color: #ffe3c8;
+}
+.slider_video a.slider_video_morebut {
+	background: url(../../images/colors/brown/mainslider-morebut-bg.png) no-repeat left top;
+}
+.slider_video a.slider_video_morebut:hover {
+	color: #ffe3c8;
+}
+
+
+.punchline_text_home {
+	border-left: 5px solid #964b00;
+}
+
+
+

@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F9D57C31-2F19-4AD2-B511-D75D8AC81566}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DNA.Negocios</RootNamespace>
+    <AssemblyName>DNA.Negocios</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\x64\Release\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Release\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Cadastral\WEB\RastreamentoMoradoresMesmoEndereco.cs" />
+    <Compile Include="Cadastral\WEB\RastreamentoSearchTelefonePJ.cs" />
+    <Compile Include="Cadastral\WEB\RastreamentoSearchTelefonePF.cs" />
+    <Compile Include="Cadastral\WEB\RastreamentoSearchPJ.cs" />
+    <Compile Include="Cadastral\WEB\Listas.cs" />
+    <Compile Include="Cadastral\WEB\RastreamentoSearchPF.cs" />
+    <Compile Include="Cadastral\WEB\RastreamentoPJPrata.cs" />
+    <Compile Include="Cadastral\WEB\RastreamentoPFPrata.cs" />
+    <Compile Include="Cadastral\WS\RastreamentoSearchTelefonePJ.cs" />
+    <Compile Include="Cadastral\WS\RastreamentoSearchTelefonePF.cs" />
+    <Compile Include="Cadastral\WS\RastreamentoSearchPJ.cs" />
+    <Compile Include="Cadastral\WS\RastreamentoSearchPF.cs" />
+    <Compile Include="Cadastral\WS\RastreamentoPJPrata.cs" />
+    <Compile Include="Cadastral\WS\RastreamentoPFPrata.cs" />
+    <Compile Include="Cadastral\WS\SISCOM.cs" />
+    <Compile Include="Cadastro\Clientes.cs" />
+    <Compile Include="Cadastro\Produtos.cs" />
+    <Compile Include="Cadastro\Usuarios.cs" />
+    <Compile Include="Fornecedor.cs" />
+    <Compile Include="HistoricoPesquisa.cs" />
+    <Compile Include="Produtos.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorio\Relatorios.cs" />
+    <Compile Include="Web References\WSDNARoteador\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DNA.Dados\DNA.Dados.csproj">
+      <Project>{246F1671-484B-4AF5-A10C-5283048D4502}</Project>
+      <Name>DNA.Dados</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DNA.Entidades\DNA.Entidades.csproj">
+      <Project>{D417B5E3-83F8-48DD-9A04-88CB4100019F}</Project>
+      <Name>DNA.Entidades</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DNA.Util\DNA.Util.csproj">
+      <Project>{740AF6D8-D49B-4DBA-BBF6-71FAC5AD0F27}</Project>
+      <Name>DNA.Util</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Veicular\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://localhost:8080/Interno/Roteador.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WSDNARoteador\</RelPath>
+      <UpdateFromURL>http://localhost:8080/Interno/Roteador.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>DNA_Negocios_WSDNARoteador_Roteador</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WSDNARoteador\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WSDNARoteador\Response.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WSDNARoteador\Roteador.wsdl" />
+    <None Include="Web References\WSDNARoteador\Usuario.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\WSDNARoteador\Roteador.disco" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,76 @@
+﻿.TextoBotaoProdutos
+{
+    color: #FFF;
+}
+.TextoBotaoProdutos:hover,
+.TextoBotaoProdutos:active 
+{
+    color: #FFF;
+}
+
+.btnDivPrincipal
+{
+    width:312px; 
+    height:152px;
+	border: none;
+	font-family: inherit;
+	font-size: inherit;
+	color: inherit;
+	background: none;
+	cursor: pointer;
+	display: inline-block;
+	outline: none;
+	position: relative;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+	z-index:10000;
+}
+
+.btnDivPrincipal-1a:hover,
+.btnDivPrincipal-1a:active 
+{
+    border:1px solid #000;
+}
+
+.btnDivPrincipal-1 {
+	border: 1px solid #fff;
+	color: #fff;
+}
+
+.divImprimirResultado
+{
+    background-position: 105px 5px;
+	background-color: #5535af;
+    background-repeat:no-repeat;
+    background-image: url(../../images/Produtos/Print28x28.png);
+    text-align:left; 
+    text-transform:uppercase; 
+    font-family: 'Segoe UI', 'Open Sans', Arial, sans-serif; 
+    text-decoration: none;
+    font-size:18px;
+	color: #fff;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	padding: 5px 12px 5px 10px;
+
+	border-bottom: 1px solid #909090;
+	width:125px;
+	height:30px;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.divImprimirResultado-1a:hover,
+.divImprimirResultado-1a:active 
+{
+    cursor:pointer;
+    border:1px solid #000;
+    background-color:#7658cb;
+}
+
+.divImprimirResultado-1 {
+	border: 1px solid #fff;
+	color: #fff;
+}

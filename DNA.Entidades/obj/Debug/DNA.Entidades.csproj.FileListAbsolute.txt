@@ -1,0 +1,10 @@
+D:\_Projetos\DNA\DNAWebSolution2.0\DNAWebSolution2.0\DNA.Entidades\bin\Debug\DNA.Entidades.dll
+D:\_Projetos\DNA\DNAWebSolution2.0\DNAWebSolution2.0\DNA.Entidades\bin\Debug\DNA.Entidades.pdb
+D:\_Projetos\DNA\DNAWebSolution2.0\DNAWebSolution2.0\DNA.Entidades\obj\Debug\ResolveAssemblyReference.cache
+D:\_Projetos\DNA\DNAWebSolution2.0\DNAWebSolution2.0\DNA.Entidades\obj\Debug\DNA.Entidades.dll
+D:\_Projetos\DNA\DNAWebSolution2.0\DNAWebSolution2.0\DNA.Entidades\obj\Debug\DNA.Entidades.pdb
+C:\_ProjetoDNA\Fontes Notebook Katia\DNA\DNAWebSolution2.0\DNAWebSolution2.0\DNA.Entidades\bin\Debug\DNA.Entidades.dll
+C:\_ProjetoDNA\Fontes Notebook Katia\DNA\DNAWebSolution2.0\DNAWebSolution2.0\DNA.Entidades\bin\Debug\DNA.Entidades.pdb
+C:\_ProjetoDNA\Fontes Notebook Katia\DNA\DNAWebSolution2.0\DNAWebSolution2.0\DNA.Entidades\obj\Debug\DNA.Entidades.csprojResolveAssemblyReference.cache
+C:\_ProjetoDNA\Fontes Notebook Katia\DNA\DNAWebSolution2.0\DNAWebSolution2.0\DNA.Entidades\obj\Debug\DNA.Entidades.dll
+C:\_ProjetoDNA\Fontes Notebook Katia\DNA\DNAWebSolution2.0\DNAWebSolution2.0\DNA.Entidades\obj\Debug\DNA.Entidades.pdb

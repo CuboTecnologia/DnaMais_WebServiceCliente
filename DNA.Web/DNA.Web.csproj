@@ -1,0 +1,651 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CBB40314-CA7E-4D5D-AD73-151F10B28FDF}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DNA.Web</RootNamespace>
+    <AssemblyName>DNA.Web</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\x64\Release\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Release\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Controles\Cadastral\ucProdutosCadastrais.ascx" />
+    <Content Include="Controles\ucLoginUsuario.ascx" />
+    <Content Include="Controles\Veicular\ucProdutosVeiculares.ascx" />
+    <Content Include="Images\Produtos\PrincipalPesquisaPJRoxo.png" />
+    <Content Include="OldHome.aspx" />
+    <Content Include="CSS\bg-patterns\pattern-default.css" />
+    <Content Include="CSS\bg-patterns\pattern-eight.css" />
+    <Content Include="CSS\bg-patterns\pattern-five.css" />
+    <Content Include="CSS\bg-patterns\pattern-four.css" />
+    <Content Include="CSS\bg-patterns\pattern-nine.css" />
+    <Content Include="CSS\bg-patterns\pattern-one.css" />
+    <Content Include="CSS\bg-patterns\pattern-seven.css" />
+    <Content Include="CSS\bg-patterns\pattern-six.css" />
+    <Content Include="CSS\bg-patterns\pattern-three.css" />
+    <Content Include="CSS\bg-patterns\pattern-two.css" />
+    <Content Include="CSS\bootstrap.css" />
+    <Content Include="CSS\Cadastral.css" />
+    <Content Include="CSS\colorpicker.css" />
+    <Content Include="CSS\colors\blue.css" />
+    <Content Include="CSS\colors\brown.css" />
+    <Content Include="CSS\colors\cyan.css" />
+    <Content Include="CSS\colors\green.css" />
+    <Content Include="CSS\colors\lightblue.css" />
+    <Content Include="CSS\colors\lightgreen.css" />
+    <Content Include="CSS\colors\purple.css" />
+    <Content Include="CSS\colors\red.css" />
+    <Content Include="CSS\colors\yellow.css" />
+    <Content Include="CSS\CadastralPrint.css" />
+    <Content Include="CSS\FTPOnline.css" />
+    <Content Include="CSS\datepicker3.css" />
+    <Content Include="CSS\epoch_styles.css" />
+    <Content Include="CSS\font-awesome.css" />
+    <Content Include="CSS\accordion2.css" />
+    <Content Include="CSS\FTPFileUpload\blueimp-gallery.min.css" />
+    <Content Include="CSS\FTPFileUpload\bootstrap.min.css" />
+    <Content Include="CSS\images\spacer.gif" />
+    <Content Include="CSS\magnific-popup.css" />
+    <Content Include="CSS\Produtos.css" />
+    <Content Include="CSS\reset.css" />
+    <Content Include="CSS\responsive-leyouts.css" />
+    <Content Include="CSS\style-switcher.css" />
+    <Content Include="CSS\style.css" />
+    <Content Include="CSS\themaLogin.css" />
+    <Content Include="CSS\theme-custom.css" />
+    <Content Include="CSS\theme.css" />
+    <Content Include="CSS\Veiculos.css" />
+    <Content Include="CSS\VeiculosPrint.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="favicon.ico" />
+    <Content Include="Home.aspx" />
+    <Content Include="Images\Alert128x128.png" />
+    <Content Include="Images\Alert18x18.png" />
+    <Content Include="Images\cadeado.png" />
+    <Content Include="Images\calendario.png" />
+    <Content Include="Images\check128x128.png" />
+    <Content Include="Images\check18x18.png" />
+    <Content Include="Images\check32x32.png" />
+    <Content Include="Images\Consultas_32x32.png" />
+    <Content Include="Images\Consultas_32x321.png" />
+    <Content Include="Images\Delete.ico" />
+    <Content Include="Images\edit.ico" />
+    <Content Include="Images\Edit.png" />
+    <Content Include="Images\Error18x18.png" />
+    <Content Include="Images\Excel18x18.png" />
+    <Content Include="Images\favicon.ico" />
+    <Content Include="Images\FTPFileUpload\loading.gif" />
+    <Content Include="Images\FTPFileUpload\progressbar.gif" />
+    <Content Include="Images\Loading.GIF" />
+    <Content Include="Images\Loading32x32.GIF" />
+    <Content Include="Images\LogoMD200x69.png" />
+    <Content Include="Images\LogoMD202x70.png" />
+    <Content Include="Images\lupa2.ico" />
+    <Content Include="Images\PainelControle_32x32.png" />
+    <Content Include="Images\PerfilUsuaria_32x32.png" />
+    <Content Include="Images\PerfilUsuario_32x32.png" />
+    <Content Include="Images\PrincipalCadastroClientesAzul.png" />
+    <Content Include="Images\PrincipalCadastroUsuariosVermelho.png" />
+    <Content Include="Images\PrincipalRelAdm.png" />
+    <Content Include="Images\Produtos\BotaoFTPVerde.png" />
+    <Content Include="Images\Produtos\BotaoVeiculoAzul.png" />
+    <Content Include="Images\Produtos\Cadastral\BotaoCadastralAmeixa.png" />
+    <Content Include="Images\Produtos\Cadastral\BotaoCadastralAzul.png" />
+    <Content Include="Images\Produtos\Cadastral\BotaoCadastralAzulPetroleo.png" />
+    <Content Include="Images\Produtos\Cadastral\BotaoCadastralLaranja.png" />
+    <Content Include="Images\Produtos\Cadastral\BotaoCadastralNude.png" />
+    <Content Include="Images\Produtos\Cadastral\BotaoCadastralRoxo.png" />
+    <Content Include="Images\Produtos\Cadastral\BotaoCadastralVerde.png" />
+    <Content Include="Images\Produtos\LupaBranca28x28.png" />
+    <Content Include="Images\Produtos\BotaoProdutoCadastralVermelho.png" />
+    <Content Include="Images\Produtos\Print28x28.png" />
+    <Content Include="Images\Produtos\Veicular\BotaoVeiculoAmeixa.png" />
+    <Content Include="Images\Produtos\Veicular\BotaoVeiculoAzul.png" />
+    <Content Include="Images\Produtos\Veicular\BotaoVeiculoAzulPetroleo.png" />
+    <Content Include="Images\Produtos\Veicular\BotaoVeiculoLaranja.png" />
+    <Content Include="Images\Produtos\Veicular\BotaoVeiculoNude.png" />
+    <Content Include="Images\Produtos\Veicular\BotaoVeiculoRoxo.png" />
+    <Content Include="Images\Produtos\Veicular\BotaoVeiculoVerde.png" />
+    <Content Include="Images\Produtos\Veicular\BotaoVeiculoVerdeFluore.png" />
+    <Content Include="Images\RelAzulBebe.png" />
+    <Content Include="Images\RelLaranja.png" />
+    <Content Include="Images\RelNude.png" />
+    <Content Include="Images\RelRoxo.png" />
+    <Content Include="Images\RelVerde.png" />
+    <Content Include="Images\user.png" />
+    <Content Include="Index.aspx" />
+    <Content Include="JS\accordion.js" />
+    <Content Include="JS\accordion\accordion.css" />
+    <Content Include="JS\accordion\custom.js" />
+    <Content Include="JS\bootstrap-datepicker.js" />
+    <Content Include="JS\bootstrap.js" />
+    <Content Include="JS\colorpicker.js" />
+    <Content Include="JS\epoch_classes.js" />
+    <Content Include="JS\function.js" />
+    <Content Include="JS\iosslider\common.css" />
+    <Content Include="JS\iosslider\_lib\jquery-1.4.min.js" />
+    <Content Include="JS\iosslider\_lib\jquery-1.7.min.js" />
+    <Content Include="JS\iosslider\_lib\jquery-1.8.2.min.js" />
+    <Content Include="JS\iosslider\_lib\jquery.easing-1.3.js" />
+    <Content Include="JS\iosslider\_src\custom.js" />
+    <Content Include="JS\iosslider\_src\jquery.iosslider.js" />
+    <Content Include="JS\iosslider\_src\jquery.iosslider.min.js" />
+    <Content Include="JS\jcarousel\jquery-1.4.2.min.js" />
+    <Content Include="JS\jcarousel\jquery.jcarousel.min.js" />
+    <Content Include="JS\jcarousel\next-horizontal.png" />
+    <Content Include="JS\jcarousel\prev-horizontal.png" />
+    <Content Include="JS\jcarousel\skin.css" />
+    <Content Include="JS\jquery-1.4.1-vsdoc.js" />
+    <Content Include="JS\jquery-1.4.1.js" />
+    <Content Include="JS\jquery-1.4.1.min.js" />
+    <Content Include="JS\jquery.browser.mobile.js" />
+    <Content Include="JS\jquery.cookie.js" />
+    <Content Include="JS\jquery.js" />
+    <Content Include="JS\jquery.maskedinput-1.3.js" />
+    <Content Include="JS\jquery.placeholder.js" />
+    <Content Include="JS\lib\jquery.easytabs.js" />
+    <Content Include="JS\lib\jquery.easytabs.min.js" />
+    <Content Include="JS\magnific-popup.js" />
+    <Content Include="JS\mainmenu\ddsmoothmenu.js" />
+    <Content Include="JS\mainmenu\jquery-1.7.1.min.js" />
+    <Content Include="JS\mainmenu\scripts.js" />
+    <Content Include="JS\mainmenu\selectnav.js" />
+    <Content Include="JS\modernizr.js" />
+    <Content Include="JS\nanoscroller.js" />
+    <Content Include="JS\nivo-slider\arrows.png" />
+    <Content Include="JS\nivo-slider\jquery.nivo.slider.js" />
+    <Content Include="JS\nivo-slider\nivo-slider.css" />
+    <Content Include="JS\portfolio\default\default_thumb.png" />
+    <Content Include="JS\portfolio\default\loader.gif" />
+    <Content Include="JS\portfolio\default\sprite.png" />
+    <Content Include="JS\portfolio\default\sprite_next.png" />
+    <Content Include="JS\portfolio\default\sprite_prev.png" />
+    <Content Include="JS\portfolio\default\sprite_x.png" />
+    <Content Include="JS\portfolio\default\sprite_y.png" />
+    <Content Include="JS\portfolio\jquery.prettyPhoto.js" />
+    <Content Include="JS\portfolio\prettyPhoto.css" />
+    <Content Include="JS\Principal.js" />
+    <Content Include="JS\progressbar\progress.js" />
+    <Content Include="JS\progressbar\ui.progress-bar.css" />
+    <Content Include="JS\revolutionslider\css\fullwidth.css" />
+    <Content Include="JS\revolutionslider\images\tiles\accordionswitch.png" />
+    <Content Include="JS\revolutionslider\images\tiles\bgtile.jpg" />
+    <Content Include="JS\revolutionslider\images\tiles\bullets_boxed.png" />
+    <Content Include="JS\revolutionslider\images\tiles\bullets_round.png" />
+    <Content Include="JS\revolutionslider\images\tiles\bullets_square.png" />
+    <Content Include="JS\revolutionslider\images\tiles\buynow.png" />
+    <Content Include="JS\revolutionslider\images\tiles\check.png" />
+    <Content Include="JS\revolutionslider\images\tiles\dragnotch.png" />
+    <Content Include="JS\revolutionslider\images\tiles\dragsliderbg.png" />
+    <Content Include="JS\revolutionslider\images\tiles\logo.png" />
+    <Content Include="JS\revolutionslider\images\tiles\minishadow.png" />
+    <Content Include="JS\revolutionslider\images\tiles\minishadow2.png" />
+    <Content Include="JS\revolutionslider\images\tiles\minishadow3.png" />
+    <Content Include="JS\revolutionslider\images\tiles\preview1.png" />
+    <Content Include="JS\revolutionslider\images\tiles\preview2.png" />
+    <Content Include="JS\revolutionslider\images\tiles\preview3.png" />
+    <Content Include="JS\revolutionslider\images\tiles\radio.png" />
+    <Content Include="JS\revolutionslider\images\tiles\selectpreview.png" />
+    <Content Include="JS\revolutionslider\images\tiles\shadow3_large.png" />
+    <Content Include="JS\revolutionslider\images\tiles\sliderconfigheadline.png" />
+    <Content Include="JS\revolutionslider\images\tiles\transition_3dch.png" />
+    <Content Include="JS\revolutionslider\images\tiles\transition_3dcv.png" />
+    <Content Include="JS\revolutionslider\images\tiles\transition_bg.png" />
+    <Content Include="JS\revolutionslider\images\tiles\transition_boxes.png" />
+    <Content Include="JS\revolutionslider\images\tiles\transition_cubic.png" />
+    <Content Include="JS\revolutionslider\images\tiles\transition_curtainone.png" />
+    <Content Include="JS\revolutionslider\images\tiles\transition_curtainthree.png" />
+    <Content Include="JS\revolutionslider\images\tiles\transition_curtaintwo.png" />
+    <Content Include="JS\revolutionslider\images\tiles\transition_custom.png" />
+    <Content Include="JS\revolutionslider\images\tiles\transition_fade.png" />
+    <Content Include="JS\revolutionslider\images\tiles\transition_flyin.png" />
+    <Content Include="JS\revolutionslider\images\tiles\transition_mixed.png" />
+    <Content Include="JS\revolutionslider\images\tiles\transition_papercut.png" />
+    <Content Include="JS\revolutionslider\images\tiles\transition_slidedown.png" />
+    <Content Include="JS\revolutionslider\images\tiles\transition_slideleft.png" />
+    <Content Include="JS\revolutionslider\images\tiles\transition_slideright.png" />
+    <Content Include="JS\revolutionslider\images\tiles\transition_slideup.png" />
+    <Content Include="JS\revolutionslider\images\tiles\transition_slotfadehorizontal.png" />
+    <Content Include="JS\revolutionslider\images\tiles\transition_slotfadevertical.png" />
+    <Content Include="JS\revolutionslider\images\tiles\transition_slotslidehorizontal.png" />
+    <Content Include="JS\revolutionslider\images\tiles\transition_slotslidevertical.png" />
+    <Content Include="JS\revolutionslider\images\tiles\transition_slotzoomhorizontal.png" />
+    <Content Include="JS\revolutionslider\images\tiles\transition_slotzoomvertical.png" />
+    <Content Include="JS\revolutionslider\images\tiles\transition_turnoff.png" />
+    <Content Include="JS\revolutionslider\rs-plugin\assets\arrowleft.png" />
+    <Content Include="JS\revolutionslider\rs-plugin\assets\arrowright.png" />
+    <Content Include="JS\revolutionslider\rs-plugin\assets\arrow_large_left.png" />
+    <Content Include="JS\revolutionslider\rs-plugin\assets\arrow_large_right.png" />
+    <Content Include="JS\revolutionslider\rs-plugin\assets\arrow_left.png" />
+    <Content Include="JS\revolutionslider\rs-plugin\assets\arrow_left2.png" />
+    <Content Include="JS\revolutionslider\rs-plugin\assets\arrow_right.png" />
+    <Content Include="JS\revolutionslider\rs-plugin\assets\arrow_right2.png" />
+    <Content Include="JS\revolutionslider\rs-plugin\assets\black50.png" />
+    <Content Include="JS\revolutionslider\rs-plugin\assets\boxed_bgtile.png" />
+    <Content Include="JS\revolutionslider\rs-plugin\assets\bullet.png" />
+    <Content Include="JS\revolutionslider\rs-plugin\assets\bullets.png" />
+    <Content Include="JS\revolutionslider\rs-plugin\assets\bullets2.png" />
+    <Content Include="JS\revolutionslider\rs-plugin\assets\bullet_boxed.png" />
+    <Content Include="JS\revolutionslider\rs-plugin\assets\coloredbg.png" />
+    <Content Include="JS\revolutionslider\rs-plugin\assets\grain.png" />
+    <Content Include="JS\revolutionslider\rs-plugin\assets\large_left.png" />
+    <Content Include="JS\revolutionslider\rs-plugin\assets\large_right.png" />
+    <Content Include="JS\revolutionslider\rs-plugin\assets\loader.gif" />
+    <Content Include="JS\revolutionslider\rs-plugin\assets\loader2.gif" />
+    <Content Include="JS\revolutionslider\rs-plugin\assets\navigdots.png" />
+    <Content Include="JS\revolutionslider\rs-plugin\assets\navigdots_bgtile.png" />
+    <Content Include="JS\revolutionslider\rs-plugin\assets\shadow1.png" />
+    <Content Include="JS\revolutionslider\rs-plugin\assets\shadow2.png" />
+    <Content Include="JS\revolutionslider\rs-plugin\assets\shadow3.png" />
+    <Content Include="JS\revolutionslider\rs-plugin\assets\small_left.png" />
+    <Content Include="JS\revolutionslider\rs-plugin\assets\small_left_boxed.png" />
+    <Content Include="JS\revolutionslider\rs-plugin\assets\small_right.png" />
+    <Content Include="JS\revolutionslider\rs-plugin\assets\small_right_boxed.png" />
+    <Content Include="JS\revolutionslider\rs-plugin\assets\timer.png" />
+    <Content Include="JS\revolutionslider\rs-plugin\assets\timerdot.png" />
+    <Content Include="JS\revolutionslider\rs-plugin\assets\transparent.jpg" />
+    <Content Include="JS\revolutionslider\rs-plugin\assets\white50.png" />
+    <Content Include="JS\revolutionslider\rs-plugin\css\settings.css" />
+    <Content Include="JS\revolutionslider\rs-plugin\images\decor_inside.png" />
+    <Content Include="JS\revolutionslider\rs-plugin\images\decor_inside_white.png" />
+    <Content Include="JS\revolutionslider\rs-plugin\images\decor_testimonial.png" />
+    <Content Include="JS\revolutionslider\rs-plugin\images\gradient\g30.png" />
+    <Content Include="JS\revolutionslider\rs-plugin\images\gradient\g40.png" />
+    <Content Include="JS\revolutionslider\rs-plugin\js\jquery.themepunch.plugins.min.js" />
+    <Content Include="JS\revolutionslider\rs-plugin\js\jquery.themepunch.revolution.js" />
+    <Content Include="JS\revolutionslider\rs-plugin\js\jquery.themepunch.revolution.min.js" />
+    <Content Include="JS\stringify.js" />
+    <Content Include="JS\style-switcher\color-switcher.css" />
+    <Content Include="JS\style-switcher\colors-swi.png" />
+    <Content Include="JS\style-switcher\jquery-1.js" />
+    <Content Include="JS\style-switcher\styleselector.js" />
+    <Content Include="JS\style-switcher\styleswitcher.js" />
+    <Content Include="JS\style.switcher.js" />
+    <Content Include="JS\tabs\tabs-style2.css" />
+    <Content Include="JS\tabs\tabs-style2.js" />
+    <Content Include="JS\tabs\tabs.css" />
+    <Content Include="JS\tabs\tabs.js" />
+    <Content Include="JS\test\fixtures\tabs.html" />
+    <Content Include="JS\test\lib\jasmine-html.js" />
+    <Content Include="JS\test\lib\jasmine-jquery-1.3.1.js" />
+    <Content Include="JS\test\lib\jasmine.css" />
+    <Content Include="JS\test\lib\jasmine.js" />
+    <Content Include="JS\test\lib\jasmine_favicon.png" />
+    <Content Include="JS\test\SpecRunner.html" />
+    <Content Include="JS\test\spec\EasyTabsSpec.js" />
+    <Content Include="JS\test\spec\SpecHelper.js" />
+    <Content Include="JS\theme.custom.js" />
+    <Content Include="JS\theme.init.js" />
+    <Content Include="JS\theme.js" />
+    <Content Include="JS\twitter\widget.js" />
+    <Content Include="JS\Veiculos.js" />
+    <Content Include="JS\vendor\jquery-1.7.1.min.js" />
+    <Content Include="JS\vendor\jquery.hashchange.min.js" />
+    <Content Include="Logoff.aspx" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Sistema\Home.aspx" />
+    <Content Include="Sistema\PainelControleAdmin.aspx" />
+    <Content Include="Sistema\PainelControleCliente.aspx" />
+    <Content Include="Sistema\PainelControleRoteador.aspx" />
+    <Content Include="Sistema\PerfilUsuario.aspx" />
+    <Content Include="Sistema\Produto\Cadastral\ConsultaWebRastreamentoPFPrata.aspx" />
+    <Content Include="Sistema\Produto\Cadastral\ConsultaWebRastreamentoPJPrata.aspx" />
+    <Content Include="Sistema\Produto\Cadastral\ConsultaWebRastreamentoSearchPF.aspx" />
+    <Content Include="Sistema\Produto\Cadastral\ConsultaWebRastreamentoSearchPJ.aspx" />
+    <Content Include="Sistema\Produto\Cadastral\ConsultaWebRastreamentoSearchTelefonePF.aspx" />
+    <Content Include="Sistema\Produto\Cadastral\ConsultaWebRastreamentoSearchTelefonePJ.aspx" />
+    <Content Include="Sistema\Produto\Cadastral\ConsultaWebRastreamentoMoradoresMesmoEndereco.aspx" />
+    <Content Include="Sistema\Produto\Cadastral\Home.aspx" />
+    <Content Include="Sistema\Produto\FTP\GerenciarArquivos.aspx" />
+    <Content Include="Sistema\Produto\FTP\GerenciarArquivosBasico.aspx" />
+    <Content Include="Sistema\Produto\Veicular\Home.aspx" />
+    <Content Include="Sistema\Relatorio\ExtratoConsumo.aspx" />
+    <Content Include="teste.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Sistema\Produto\FTP\GerenciamentoArquivos.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controles\Cadastral\ucProdutosCadastrais.ascx.cs">
+      <DependentUpon>ucProdutosCadastrais.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controles\Cadastral\ucProdutosCadastrais.ascx.designer.cs">
+      <DependentUpon>ucProdutosCadastrais.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\ucLoginUsuario.ascx.cs">
+      <DependentUpon>ucLoginUsuario.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controles\ucLoginUsuario.ascx.designer.cs">
+      <DependentUpon>ucLoginUsuario.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\Veicular\ucProdutosVeiculares.ascx.cs">
+      <DependentUpon>ucProdutosVeiculares.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controles\Veicular\ucProdutosVeiculares.ascx.designer.cs">
+      <DependentUpon>ucProdutosVeiculares.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="OldHome.aspx.cs">
+      <DependentUpon>OldHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OldHome.aspx.designer.cs">
+      <DependentUpon>OldHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logoff.aspx.cs">
+      <DependentUpon>Logoff.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logoff.aspx.designer.cs">
+      <DependentUpon>Logoff.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PrincipalAutenticada.Master.cs">
+      <DependentUpon>PrincipalAutenticada.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PrincipalAutenticada.Master.designer.cs">
+      <DependentUpon>PrincipalAutenticada.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Sistema\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sistema\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sistema\PainelControleAdmin.aspx.cs">
+      <DependentUpon>PainelControleAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sistema\PainelControleAdmin.aspx.designer.cs">
+      <DependentUpon>PainelControleAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sistema\PainelControleCliente.aspx.cs">
+      <DependentUpon>PainelControleCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sistema\PainelControleCliente.aspx.designer.cs">
+      <DependentUpon>PainelControleCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sistema\PainelControleRoteador.aspx.cs">
+      <DependentUpon>PainelControleRoteador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sistema\PainelControleRoteador.aspx.designer.cs">
+      <DependentUpon>PainelControleRoteador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sistema\PerfilUsuario.aspx.cs">
+      <DependentUpon>PerfilUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sistema\PerfilUsuario.aspx.designer.cs">
+      <DependentUpon>PerfilUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sistema\Produto\Cadastral\ConsultaWebRastreamentoPFPrata.aspx.cs">
+      <DependentUpon>ConsultaWebRastreamentoPFPrata.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sistema\Produto\Cadastral\ConsultaWebRastreamentoPFPrata.aspx.designer.cs">
+      <DependentUpon>ConsultaWebRastreamentoPFPrata.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sistema\Produto\Cadastral\ConsultaWebRastreamentoPJPrata.aspx.cs">
+      <DependentUpon>ConsultaWebRastreamentoPJPrata.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sistema\Produto\Cadastral\ConsultaWebRastreamentoPJPrata.aspx.designer.cs">
+      <DependentUpon>ConsultaWebRastreamentoPJPrata.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sistema\Produto\Cadastral\ConsultaWebRastreamentoSearchPF.aspx.cs">
+      <DependentUpon>ConsultaWebRastreamentoSearchPF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sistema\Produto\Cadastral\ConsultaWebRastreamentoSearchPF.aspx.designer.cs">
+      <DependentUpon>ConsultaWebRastreamentoSearchPF.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sistema\Produto\Cadastral\ConsultaWebRastreamentoSearchPJ.aspx.cs">
+      <DependentUpon>ConsultaWebRastreamentoSearchPJ.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sistema\Produto\Cadastral\ConsultaWebRastreamentoSearchPJ.aspx.designer.cs">
+      <DependentUpon>ConsultaWebRastreamentoSearchPJ.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sistema\Produto\Cadastral\ConsultaWebRastreamentoSearchTelefonePF.aspx.cs">
+      <DependentUpon>ConsultaWebRastreamentoSearchTelefonePF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sistema\Produto\Cadastral\ConsultaWebRastreamentoSearchTelefonePF.aspx.designer.cs">
+      <DependentUpon>ConsultaWebRastreamentoSearchTelefonePF.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sistema\Produto\Cadastral\ConsultaWebRastreamentoSearchTelefonePJ.aspx.cs">
+      <DependentUpon>ConsultaWebRastreamentoSearchTelefonePJ.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sistema\Produto\Cadastral\ConsultaWebRastreamentoSearchTelefonePJ.aspx.designer.cs">
+      <DependentUpon>ConsultaWebRastreamentoSearchTelefonePJ.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sistema\Produto\Cadastral\ConsultaWebRastreamentoMoradoresMesmoEndereco.aspx.cs">
+      <DependentUpon>ConsultaWebRastreamentoMoradoresMesmoEndereco.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sistema\Produto\Cadastral\ConsultaWebRastreamentoMoradoresMesmoEndereco.aspx.designer.cs">
+      <DependentUpon>ConsultaWebRastreamentoMoradoresMesmoEndereco.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sistema\Produto\Cadastral\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sistema\Produto\Cadastral\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sistema\Produto\FTP\GerenciamentoArquivos.ashx.cs">
+      <DependentUpon>GerenciamentoArquivos.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Sistema\Produto\FTP\GerenciarArquivos.aspx.cs">
+      <DependentUpon>GerenciarArquivos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sistema\Produto\FTP\GerenciarArquivos.aspx.designer.cs">
+      <DependentUpon>GerenciarArquivos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sistema\Produto\FTP\GerenciarArquivosBasico.aspx.cs">
+      <DependentUpon>GerenciarArquivosBasico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sistema\Produto\FTP\GerenciarArquivosBasico.aspx.designer.cs">
+      <DependentUpon>GerenciarArquivosBasico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sistema\Produto\Veicular\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sistema\Produto\Veicular\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sistema\Relatorio\ExtratoConsumo.aspx.cs">
+      <DependentUpon>ExtratoConsumo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sistema\Relatorio\ExtratoConsumo.aspx.designer.cs">
+      <DependentUpon>ExtratoConsumo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="teste.aspx.cs">
+      <DependentUpon>teste.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="teste.aspx.designer.cs">
+      <DependentUpon>teste.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="JS\FTPFileUpload\" />
+    <Folder Include="Services\Produtos\Cadastral\" />
+    <Folder Include="Services\Produtos\Veicular\" />
+    <Folder Include="Sistema\Cadastro\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DNA.Entidades\DNA.Entidades.csproj">
+      <Project>{D417B5E3-83F8-48DD-9A04-88CB4100019F}</Project>
+      <Name>DNA.Entidades</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DNA.Negocios\DNA.Negocios.csproj">
+      <Project>{F9D57C31-2F19-4AD2-B511-D75D8AC81566}</Project>
+      <Name>DNA.Negocios</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DNA.Util\DNA.Util.csproj">
+      <Project>{740AF6D8-D49B-4DBA-BBF6-71FAC5AD0F27}</Project>
+      <Name>DNA.Util</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="PrincipalAutenticada.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="CSS\extension.less" />
+    <None Include="CSS\skin.less" />
+    <None Include="JS\test\lib\MIT.LICENSE" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>62960</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

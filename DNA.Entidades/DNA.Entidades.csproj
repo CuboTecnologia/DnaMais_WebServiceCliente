@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D417B5E3-83F8-48DD-9A04-88CB4100019F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DNA.Entidades</RootNamespace>
+    <AssemblyName>DNA.Entidades</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\x64\Release\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Release\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Cadastral\Controle.cs" />
+    <Compile Include="Cadastral\CNAE.cs" />
+    <Compile Include="Cadastral\Cidade.cs" />
+    <Compile Include="Cadastral\ResponseMoradoresMesmoEndereco.cs" />
+    <Compile Include="Cadastral\FiltroPesquisaMoradoresMesmoEndereco.cs" />
+    <Compile Include="Cadastral\QSA_PJ.cs" />
+    <Compile Include="Cadastral\QSA.cs" />
+    <Compile Include="Cadastral\ResponseSearchTelPJDadosEmpresa.cs" />
+    <Compile Include="Cadastral\ResponseSearchTelefonePJ_WS.cs" />
+    <Compile Include="Cadastral\ResponseSearchTelPFDadosPessoais.cs" />
+    <Compile Include="Cadastral\ResponseSearchTelefonePF_WS.cs" />
+    <Compile Include="Cadastral\ResponseSearchPJDadosEmpresa.cs" />
+    <Compile Include="Cadastral\ResponseSearchPJ_WS.cs" />
+    <Compile Include="Cadastral\ResponseSearchPF_WS.cs" />
+    <Compile Include="Cadastral\ResponseSearchPFDadosPessoais.cs" />
+    <Compile Include="Cadastral\ResponseSearchTelefonePJ.cs" />
+    <Compile Include="Cadastral\ResponseSearchTelefonePF.cs" />
+    <Compile Include="Cadastral\FiltroPesquisaSearchTelefonePJ.cs" />
+    <Compile Include="Cadastral\FiltroPesquisaSearchTelefonePF.cs" />
+    <Compile Include="Cadastral\ResponseSearchPJ.cs" />
+    <Compile Include="Cadastral\FiltroPesquisaSearchPJ.cs" />
+    <Compile Include="Cadastral\FiltroPesquisaSearchPF.cs" />
+    <Compile Include="Cadastral\ResponseSearchPF.cs" />
+    <Compile Include="Cadastral\DadosCadastraisPJ.cs" />
+    <Compile Include="Cadastral\DadosCadastraisPF.cs" />
+    <Compile Include="Cadastral\Email.cs" />
+    <Compile Include="Cadastral\Endereco.cs" />
+    <Compile Include="Cadastral\PEP.cs" />
+    <Compile Include="Cadastral\ResponsePJPrata.cs" />
+    <Compile Include="Cadastral\Status.cs" />
+    <Compile Include="Cadastral\ResponseError.cs" />
+    <Compile Include="Cadastral\ResponsePFPrata.cs" />
+    <Compile Include="Cadastral\ResponseStatus.cs" />
+    <Compile Include="Cadastral\Telefone.cs" />
+    <Compile Include="Cadastral\SISCOM\DadosCadastrais.cs" />
+    <Compile Include="Cadastral\SISCOM\Email.cs" />
+    <Compile Include="Cadastral\SISCOM\Endereco.cs" />
+    <Compile Include="Cadastral\SISCOM\Error.cs" />
+    <Compile Include="Cadastral\SISCOM\InputItem.cs" />
+    <Compile Include="Cadastral\SISCOM\Output.cs" />
+    <Compile Include="Cadastral\SISCOM\Response.cs" />
+    <Compile Include="Cadastral\SISCOM\ResponseError.cs" />
+    <Compile Include="Cadastral\SISCOM\RetornoSiscom.cs" />
+    <Compile Include="Cadastral\SISCOM\Status.cs" />
+    <Compile Include="Cadastral\SISCOM\Telefone.cs" />
+    <Compile Include="Cadastral\UF.cs" />
+    <Compile Include="Cadastral\Vinculo.cs" />
+    <Compile Include="Categoria.cs" />
+    <Compile Include="ContatoEmail.cs" />
+    <Compile Include="Cliente.cs" />
+    <Compile Include="EnderecoByCEP.cs" />
+    <Compile Include="FornecedorConsulta.cs" />
+    <Compile Include="FTP\Arquivo.cs" />
+    <Compile Include="HistoricoPesquisa.cs" />
+    <Compile Include="OrigemProdutoConsultado.cs" />
+    <Compile Include="PerfilAcesso.cs" />
+    <Compile Include="Produto.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Relatorio\RelatorioAnaliticoUsuario.cs" />
+    <Compile Include="Relatorio\FiltroPesquisa.cs" />
+    <Compile Include="Relatorio\RelatorioAnaliticoCliente.cs" />
+    <Compile Include="Relatorio\Relatorios.cs" />
+    <Compile Include="Relatorio\RelatorioSinteticoCliente.cs" />
+    <Compile Include="Relatorio\RetornoStatusPesquisa.cs" />
+    <Compile Include="Usuario.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Veicular\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

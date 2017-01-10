@@ -1,0 +1,24 @@
+D:\_Projetos\DNA\DNAWebSolution2.0\DNAWebSolution2.0\DNA.Negocios\bin\Debug\DNA.Negocios.dll.config
+D:\_Projetos\DNA\DNAWebSolution2.0\DNAWebSolution2.0\DNA.Negocios\bin\Debug\DNA.Negocios.dll
+D:\_Projetos\DNA\DNAWebSolution2.0\DNAWebSolution2.0\DNA.Negocios\bin\Debug\DNA.Negocios.pdb
+D:\_Projetos\DNA\DNAWebSolution2.0\DNAWebSolution2.0\DNA.Negocios\bin\Debug\DNA.Dados.dll
+D:\_Projetos\DNA\DNAWebSolution2.0\DNAWebSolution2.0\DNA.Negocios\bin\Debug\DNA.Entidades.dll
+D:\_Projetos\DNA\DNAWebSolution2.0\DNAWebSolution2.0\DNA.Negocios\bin\Debug\DNA.Util.dll
+D:\_Projetos\DNA\DNAWebSolution2.0\DNAWebSolution2.0\DNA.Negocios\bin\Debug\DNA.Dados.pdb
+D:\_Projetos\DNA\DNAWebSolution2.0\DNAWebSolution2.0\DNA.Negocios\bin\Debug\DNA.Entidades.pdb
+D:\_Projetos\DNA\DNAWebSolution2.0\DNAWebSolution2.0\DNA.Negocios\bin\Debug\DNA.Util.pdb
+D:\_Projetos\DNA\DNAWebSolution2.0\DNAWebSolution2.0\DNA.Negocios\obj\Debug\ResolveAssemblyReference.cache
+D:\_Projetos\DNA\DNAWebSolution2.0\DNAWebSolution2.0\DNA.Negocios\obj\Debug\DNA.Negocios.dll
+D:\_Projetos\DNA\DNAWebSolution2.0\DNAWebSolution2.0\DNA.Negocios\obj\Debug\DNA.Negocios.pdb
+C:\_ProjetoDNA\Fontes Notebook Katia\DNA\DNAWebSolution2.0\DNAWebSolution2.0\DNA.Negocios\bin\Debug\DNA.Negocios.dll.config
+C:\_ProjetoDNA\Fontes Notebook Katia\DNA\DNAWebSolution2.0\DNAWebSolution2.0\DNA.Negocios\bin\Debug\DNA.Negocios.dll
+C:\_ProjetoDNA\Fontes Notebook Katia\DNA\DNAWebSolution2.0\DNAWebSolution2.0\DNA.Negocios\bin\Debug\DNA.Negocios.pdb
+C:\_ProjetoDNA\Fontes Notebook Katia\DNA\DNAWebSolution2.0\DNAWebSolution2.0\DNA.Negocios\bin\Debug\DNA.Dados.dll
+C:\_ProjetoDNA\Fontes Notebook Katia\DNA\DNAWebSolution2.0\DNAWebSolution2.0\DNA.Negocios\bin\Debug\DNA.Entidades.dll
+C:\_ProjetoDNA\Fontes Notebook Katia\DNA\DNAWebSolution2.0\DNAWebSolution2.0\DNA.Negocios\bin\Debug\DNA.Util.dll
+C:\_ProjetoDNA\Fontes Notebook Katia\DNA\DNAWebSolution2.0\DNAWebSolution2.0\DNA.Negocios\bin\Debug\DNA.Dados.pdb
+C:\_ProjetoDNA\Fontes Notebook Katia\DNA\DNAWebSolution2.0\DNAWebSolution2.0\DNA.Negocios\bin\Debug\DNA.Entidades.pdb
+C:\_ProjetoDNA\Fontes Notebook Katia\DNA\DNAWebSolution2.0\DNAWebSolution2.0\DNA.Negocios\bin\Debug\DNA.Util.pdb
+C:\_ProjetoDNA\Fontes Notebook Katia\DNA\DNAWebSolution2.0\DNAWebSolution2.0\DNA.Negocios\obj\Debug\DNA.Negocios.csprojResolveAssemblyReference.cache
+C:\_ProjetoDNA\Fontes Notebook Katia\DNA\DNAWebSolution2.0\DNAWebSolution2.0\DNA.Negocios\obj\Debug\DNA.Negocios.dll
+C:\_ProjetoDNA\Fontes Notebook Katia\DNA\DNAWebSolution2.0\DNAWebSolution2.0\DNA.Negocios\obj\Debug\DNA.Negocios.pdb

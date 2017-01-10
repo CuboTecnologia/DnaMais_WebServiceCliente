@@ -1,0 +1,10 @@
+D:\_Projetos\DNA\DNAWebSolution2.0\DNAWebSolution2.0\DNA.Dados\bin\x64\Debug\DNA.Dados.dll
+D:\_Projetos\DNA\DNAWebSolution2.0\DNAWebSolution2.0\DNA.Dados\bin\x64\Debug\DNA.Dados.pdb
+D:\_Projetos\DNA\DNAWebSolution2.0\DNAWebSolution2.0\DNA.Dados\bin\x64\Debug\DNA.Entidades.dll
+D:\_Projetos\DNA\DNAWebSolution2.0\DNAWebSolution2.0\DNA.Dados\bin\x64\Debug\DNA.Util.dll
+D:\_Projetos\DNA\DNAWebSolution2.0\DNAWebSolution2.0\DNA.Dados\bin\x64\Debug\Oracle.DataAccess.dll
+D:\_Projetos\DNA\DNAWebSolution2.0\DNAWebSolution2.0\DNA.Dados\bin\x64\Debug\DNA.Entidades.pdb
+D:\_Projetos\DNA\DNAWebSolution2.0\DNAWebSolution2.0\DNA.Dados\bin\x64\Debug\DNA.Util.pdb
+D:\_Projetos\DNA\DNAWebSolution2.0\DNAWebSolution2.0\DNA.Dados\obj\x64\Debug\ResolveAssemblyReference.cache
+D:\_Projetos\DNA\DNAWebSolution2.0\DNAWebSolution2.0\DNA.Dados\obj\x64\Debug\DNA.Dados.dll
+D:\_Projetos\DNA\DNAWebSolution2.0\DNAWebSolution2.0\DNA.Dados\obj\x64\Debug\DNA.Dados.pdb

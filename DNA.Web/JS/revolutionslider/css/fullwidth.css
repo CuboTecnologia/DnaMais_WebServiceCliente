@@ -1,0 +1,96 @@
+/*-----------------------------------------------------------------------------
+
+REVOLUTION RESPONSIVE BASIC STYLES OF HTML DOCUMENT
+
+Screen Stylesheet
+
+version:   	1.0
+date:      	26/06/12
+author:		themepunch
+email:     	support@themepunch.com
+website:   	http://www.themepunch.com
+-----------------------------------------------------------------------------*/
+
+
+  /*********************************************************************************************
+		-	SET THE SCREEN SIZES FOR THE BANNER IF YOU WISH TO MAKE THE BANNER RESOPONSIVE 	-
+  **********************************************************************************************/
+
+  /*	-	THE BANNER CONTAINER (Padding, Shadow, Border etc. )	-	*/
+
+
+	 .fullwidthbanner-container{
+		width:100% !important;
+		position:relative;
+		padding:0;
+		margin-top: -31px;
+		max-height:485px !important;
+		overflow:hidden;
+		border-bottom: 5px solid #fff;
+	}
+
+
+@media only screen and (min-width: 1000px){}
+@media only screen and (min-width: 768px) and (max-width: 999px){
+
+	 .fullwidthbanner-container{
+		width:100% !important;
+		position:relative;
+		padding:0;
+		margin-top: -31px;
+		max-height:385px !important;
+		overflow:hidden;
+		border-bottom: 5px solid #fff;
+	}
+	.slider_mer_minus {
+	float: left;
+	width: 100%;
+	min-height: 340px;
+	}
+
+}
+
+
+
+
+@media only screen and (min-width: 480px) and (max-width: 767px){
+
+	 .fullwidthbanner-container{
+		width:100% !important;
+		position:relative;
+		padding:0;
+		margin-top: -31px;
+		max-height:285px !important;
+		overflow:hidden;
+		border-bottom: 5px solid #fff;
+	}
+	.slider_mer_minus {
+	float: left;
+	width: 100%;
+	min-height: 200px;
+	}
+
+}
+
+
+
+@media only screen and (max-width: 480px){
+
+
+	 .fullwidthbanner-container{
+		width:100% !important;
+		position:relative;
+		padding:0;
+		margin-top: -31px;
+		max-height:185px !important;
+		overflow:hidden;
+		border-bottom: 5px solid #fff;
+	}
+	.slider_mer_minus {
+	float: left;
+	width: 100%;
+	min-height: 100px;
+	}
+
+
+}

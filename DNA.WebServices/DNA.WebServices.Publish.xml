@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="C:\_PublishWS" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="FileSystem" replaceMatchingFiles="True" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="Web.config" publishTime="06/25/2015 12:55:19" />
+    <file relUrl="bin/DNA.Entidades.pdb" publishTime="06/25/2015 12:55:05" />
+    <file relUrl="Online/SiscomWS.asmx" publishTime="04/01/2015 12:24:50" />
+    <file relUrl="bin/DNA.Util.pdb" publishTime="06/25/2015 12:55:05" />
+    <file relUrl="bin/DNA.WebServices.dll" publishTime="06/25/2015 12:55:06" />
+    <file relUrl="bin/DNA.Negocios.pdb" publishTime="06/25/2015 12:55:05" />
+    <file relUrl="bin/DNA.Util.dll" publishTime="06/25/2015 12:55:05" />
+    <file relUrl="bin/DNA.Negocios.dll" publishTime="06/25/2015 12:55:05" />
+    <file relUrl="bin/DNA.Entidades.dll" publishTime="06/25/2015 12:55:05" />
+    <file relUrl="bin/DNA.Dados.dll" publishTime="06/25/2015 12:55:05" />
+    <file relUrl="Online/WSIntegracaoDNAOnline.asmx" publishTime="04/28/2015 00:34:58" />
+    <file relUrl="bin/DNA.Dados.pdb" publishTime="06/25/2015 12:55:05" />
+    <file relUrl="bin/DNA.WebServices.pdb" publishTime="06/25/2015 12:55:06" />
+  </publishProfile>
+</publishData>

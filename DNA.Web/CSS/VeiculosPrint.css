@@ -1,0 +1,98 @@
+﻿html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, th, tr
+{
+    text-transform: UPPERCASE !important;
+    font-family: 'SEGOE UI' , 'OPEN SANS' , ARIAL, SANS-SERIF !important;
+    text-decoration: NONE !important;
+    font-size: 9PX !important;
+    color: #000 !important;
+}
+
+table, td, tr
+{
+   /* border: 1px solid #000 !important;*/
+}
+
+.imagemAlertaOkReduzida
+{
+    width: 48px !important;
+    height: 48px !important;
+}
+
+.imgVeiculoPatioReduzido
+{
+    width: 192px !important;
+    height: 144px !important;
+}
+
+.clDivEspacoBranco
+{
+    display: none !important;
+}
+
+.tabelaColunaLabelResultado
+{
+    background-color: #96C2E4 !important;
+    padding-left: 5PX !important;
+}
+
+.tabelaColunaResultado
+{
+    background-color: #F9F9F9 !important;
+    padding-left: 2PX !important;
+    width: 80px !important;
+}
+
+.tabelaColunaLabelResultadoAgregado
+{
+    width: 240PX !important;
+}
+
+.tabelaColunaResultadoAgregado
+{
+    width: 220PX !important;
+}
+
+.gridHistoricoRouboFurtoHeader
+{
+    background-color: #96C2E4 !important;
+    font-weight: normal !important;
+    vertical-align: middle !important;
+}
+
+.gridHistoricoRouboFurtoItem
+{
+    background-color: #F9F9F9 !important;
+    padding-left: 2PX !important;
+    border-bottom: 2px solid #fff !important;
+}
+
+
+.lblTituloDadosVeiculo
+{
+    font-size: 12PX !important;
+}
+
+.lblTextoImprimir
+{
+    display: none !important;
+}
+
+.divImprimirResultado
+{
+	display: none !important;
+}
+
+.imgLogoPrint
+{
+    display: none !important;
+    width: 200px !important;
+    height: 47px !important;
+    position: relative !important;
+    left: -80px !important;
+}
+
+.MensagemPesquisaFinalizada
+{
+    text-align: center !important;
+    border-top: solid 1px #9A9A9A !important;
+}

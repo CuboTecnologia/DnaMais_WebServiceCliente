@@ -1,0 +1,57 @@
+﻿.divResultadoPesquisaCadastral
+{
+    TEXT-ALIGN:LEFT; 
+    TEXT-TRANSFORM:UPPERCASE; 
+    FONT-FAMILY: 'SEGOE UI', 'OPEN SANS', ARIAL, SANS-SERIF; 
+    TEXT-DECORATION: NONE;
+    FONT-SIZE:16PX;
+    COLOR: #000;
+}
+
+.tabelaColunaLabelResultadoCadastral
+{
+    BACKGROUND-COLOR:#E9E9E9;
+    border-bottom: 1px solid #B5B5B5;
+    PADDING-LEFT: 5PX;
+    FONT-SIZE:14PX;
+    WIDTH:220PX;
+}
+
+.tabelaColunaResultadoCadastral
+{
+    border-bottom: 1px solid #B5B5B5;
+    BACKGROUND-COLOR:#fff;
+    PADDING-LEFT: 2PX;
+    FONT-SIZE:14PX;
+}
+
+.MensagemPesquisaFinalizada
+{
+    border-top:solid 1px #9A9A9A;
+}
+
+.gridCadastralHeader
+{
+    BACKGROUND-COLOR:#E9E9E9;
+    border-bottom: 1px solid #B5B5B5;
+    font-weight:normal;
+    vertical-align:middle;
+    FONT-SIZE:14PX;
+}
+
+.gridCadastralItem
+{
+    BACKGROUND-COLOR:#fff;
+    PADDING-LEFT: 2PX;
+    FONT-SIZE:14PX;
+    border-bottom: 1px solid #B5B5B5;
+    
+}
+
+.gridCadastralItem2
+{
+    BACKGROUND-COLOR:#F9F9F9;
+    PADDING-LEFT: 2PX;
+    FONT-SIZE:11PX;
+    border-bottom: 1px solid #fff;
+}

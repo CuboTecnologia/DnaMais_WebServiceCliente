@@ -1,0 +1,32 @@
+
+------------------
+Método: Consultar
+Hora da gravação do log: 17/06/2015 11:55:26
+Detalhes do erro:
+    erro: ex:Não é possível encontrar a tabela 1.
+------------------
+
+
+------------------
+Método: btnPesquisar_Click
+Hora da gravação do log: 17/06/2015 11:55:26
+Detalhes do erro:
+    erro: ex:Não é possível encontrar a tabela 1.
+------------------
+
+
+------------------
+Método: Consultar
+Hora da gravação do log: 17/06/2015 17:23:40
+Detalhes do erro:
+    erro: ex:A coluna 'OBITO' não pertence à tabela Table.
+------------------
+
+
+------------------
+Método: btnPesquisar_Click
+Hora da gravação do log: 17/06/2015 17:23:40
+Detalhes do erro:
+    erro: ex:A coluna 'OBITO' não pertence à tabela Table.
+------------------
+

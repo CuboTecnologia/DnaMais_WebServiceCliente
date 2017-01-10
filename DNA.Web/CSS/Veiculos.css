@@ -1,0 +1,52 @@
+﻿.divResultadoPesquisaVeiculos
+{
+    TEXT-ALIGN:LEFT; 
+    TEXT-TRANSFORM:UPPERCASE; 
+    FONT-FAMILY: 'SEGOE UI', 'OPEN SANS', ARIAL, SANS-SERIF; 
+    TEXT-DECORATION: NONE;
+    FONT-SIZE:16PX;
+    COLOR: #000;
+}
+
+.tabelaColunaLabelResultado
+{
+    BACKGROUND-COLOR:#96C2E4;
+    PADDING-LEFT: 5PX;
+}
+
+.tabelaColunaResultado
+{
+    BACKGROUND-COLOR:#F9F9F9;
+    PADDING-LEFT: 2PX;
+    FONT-SIZE:14PX;
+}
+
+.tabelaColunaLabelResultadoAgregado
+{
+    WIDTH:240PX;
+}
+
+.tabelaColunaResultadoAgregado
+{
+    WIDTH:220PX;
+}
+
+.gridHistoricoRouboFurtoHeader
+{
+    BACKGROUND-COLOR:#96C2E4;
+    font-weight:normal;
+    vertical-align:middle;
+}
+
+.gridHistoricoRouboFurtoItem
+{
+    BACKGROUND-COLOR:#F9F9F9;
+    PADDING-LEFT: 2PX;
+    FONT-SIZE:11PX;
+    border-bottom: 2px solid #fff;
+}
+
+.MensagemPesquisaFinalizada
+{
+    border-top:solid 1px #9A9A9A;
+}
