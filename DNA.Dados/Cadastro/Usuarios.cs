@@ -49,7 +49,7 @@ namespace DNA.Dados.Cadastro
                     arParms[4].Direction = ParameterDirection.Input;
                     arParms[4].Value = usu.FlagAtivo;
 
-                    oConn.Execute("DNAONLINE.P_L_USUARIOS", arParms, ref oDT);
+                    oConn.Execute("DNASITE.P_L_USUARIOS", arParms, ref oDT);
                 }
                 catch (Exception ex)
                 { throw ex; }
@@ -128,7 +128,7 @@ namespace DNA.Dados.Cadastro
                     arParms[8].Direction = ParameterDirection.Input;
                     if (usu.FlagAtivo.Length == 0) { arParms[8].Value = DBNull.Value; } else { arParms[8].Value = usu.FlagAtivo; }
 
-                    oConn.Execute("DNAONLINE.P_U_USUARIO", arParms);
+                    oConn.Execute("DNAINFO.P_U_USUARIO", arParms);
 
                     oConn.Commit();
                 }

@@ -54,7 +54,7 @@ namespace DNA.Dados.Cadastral.WS
                     else
                     { arParms[4].Value = NomeCidade; }
 
-                    oConn.Execute("DNAONLINE.P_L_CIDADES", arParms, ref oDS);
+                    oConn.Execute("DNAINFO.P_L_CIDADES", arParms, ref oDS);
                 }
                 catch (Exception ex)
                 { throw ex; }

@@ -45,7 +45,7 @@ namespace DNA.Dados.Cadastral.WS
                     arParms[4].OracleDbType = OracleDbType.RefCursor;
                     arParms[4].Direction = ParameterDirection.Output;
 
-                    oConn.Execute("DNAONLINE.P_L_WS_SISCOM_PF", arParms, ref oDS);
+                    oConn.Execute("DNAINFO.P_L_WS_SISCOM_PF", arParms, ref oDS);
                 }
                 catch (Exception ex)
                 { throw ex; }

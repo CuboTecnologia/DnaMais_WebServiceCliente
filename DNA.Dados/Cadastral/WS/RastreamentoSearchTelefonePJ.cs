@@ -37,7 +37,7 @@ namespace DNA.Dados.Cadastral.WS
                     arParms[2].Direction = ParameterDirection.Output;
 
 
-                    oConn.Execute("DNAONLINE.P_L_WS_RASTREA_SEARCH_TEL_PJ", arParms, ref oDS);
+                    oConn.Execute("DNAINFO.P_L_WS_RASTREA_SEARCH_TEL_PJ", arParms, ref oDS);
                 }
                 catch (Exception ex)
                 { throw ex; }

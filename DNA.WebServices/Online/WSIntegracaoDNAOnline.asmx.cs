@@ -1968,7 +1968,7 @@ namespace DNA.WebServices.Online
                 Negocios.Cadastro.Usuarios n = new Negocios.Cadastro.Usuarios();
 
                 u.LoginUsuario = loginUsuario.Trim();
-                u.SenhaUsuario = System.Security.Encryption(senhaUsuario.Trim());
+                u.SenhaUsuario = senhaUsuario.Trim();
 
                 lRetUser = n.Listar(u);
 

@@ -64,7 +64,7 @@ namespace DNA.Dados.Cadastral.WS
                     arParms[6].Direction = ParameterDirection.Output;
 
 
-                    oConn.Execute("DNAONLINE.P_L_WS_RAST_MORA_MESMO_END", arParms, ref oDS);
+                    oConn.Execute("DNAINFO.P_L_WS_RAST_MORA_MESMO_END", arParms, ref oDS);
                 }
                 catch (Exception ex)
                 { throw ex; }

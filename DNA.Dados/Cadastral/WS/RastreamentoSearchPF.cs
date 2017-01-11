@@ -67,7 +67,7 @@ namespace DNA.Dados.Cadastral.WS
                     arParms[5].Direction = ParameterDirection.Output;
 
 
-                    oConn.Execute("DNAONLINE.P_L_WS_RASTREAMENTO_SEARCH_PF", arParms, ref oDS);
+                    oConn.Execute("DNAINFO.P_L_WS_RASTREAMENTO_SEARCH_PF", arParms, ref oDS);
                 }
                 catch (Exception ex)
                 { throw ex; }

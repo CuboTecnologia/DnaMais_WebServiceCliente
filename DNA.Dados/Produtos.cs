@@ -61,7 +61,7 @@ namespace DNA.Dados
                     if (user.Produtos != null && user.Produtos.Count == 1)
                     { arParms[5].Value = user.Produtos.FirstOrDefault().FlagAtivoProduto; }
 
-                    oConn.Execute("DNAONLINE.P_L_PRODUTOS_BY_ID_USU_CLI", arParms, ref oDT);
+                    oConn.Execute("DNAINFO.P_L_PRODUTOS_BY_ID_USU_CLI", arParms, ref oDT);
                 }
                 catch (Exception ex)
                 { throw ex; }

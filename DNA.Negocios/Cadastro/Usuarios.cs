@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Configuration;
 using System.Data;
+using DNAMais.Framework;
 
 namespace DNA.Negocios.Cadastro
 {
@@ -11,7 +12,7 @@ namespace DNA.Negocios.Cadastro
     {
         private DateTime DataBR = TimeZoneInfo.ConvertTime(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById("E. South America Standard Time"));
 
-        string ChaveAcessoWSInterno = ConfigurationManager.AppSettings["ChaveAcessoWSInterno"].ToString();        
+        string ChaveAcessoWSInterno = ConfigurationManager.AppSettings["ChaveAcessoWSInterno"].ToString();
 
         public List<Entidades.Usuario> Listar(Entidades.Usuario user)
         {
@@ -19,7 +20,9 @@ namespace DNA.Negocios.Cadastro
             {
                 Util.Cryptography cript = new Util.Cryptography(Util.EncryptionAlgorithm.TripleDes);
                 string SenhaCript = "";
-                SenhaCript = Convert.ToBase64String(cript.Encrypt(Encoding.ASCII.GetBytes(user.SenhaUsuario), Util.Cryptography.Key, Util.Cryptography.Vector));
+                //SenhaCript = Convert.ToBase64String(cript.Encrypt(Encoding.ASCII.GetBytes(user.SenhaUsuario), Util.Cryptography.Key, Util.Cryptography.Vector));
+
+                SenhaCript = Security.Encryption(user.SenhaUsuario);
 
                 List<Entidades.Usuario> lRetUsu = new List<Entidades.Usuario>();
                 List<Entidades.PerfilAcesso> lRetPerfil = new List<Entidades.PerfilAcesso>();
@@ -70,189 +73,199 @@ namespace DNA.Negocios.Cadastro
                     retUsu.Observacao = drUsu["OBESERVACAO"].ToString();
                     retUsu.SenhaUsuario = drUsu["SENHA"].ToString();
 
-                    dtClientes = new DataTable();
-                    Entidades.Cliente entCli = new Entidades.Cliente();
-                    entCli.IdCliente = retUsu.IdCliente == null ? 0 : (int)retUsu.IdCliente;
+                    #region Carrega dados Cliente Empresa
 
-                    if (entCli.IdCliente > 0)
-                    {
-                        negCliente.Listar(entCli, ref dtClientes);
+                    //dtClientes = new DataTable();
+                    //Entidades.Cliente entCli = new Entidades.Cliente();
+                    //entCli.IdCliente = retUsu.IdCliente == null ? 0 : (int)retUsu.IdCliente;
 
-                        foreach (DataRow drCli in dtClientes.Rows)
-                        {
-                            Entidades.Cliente retCli = new Entidades.Cliente();
+                    //if (entCli.IdCliente > 0)
+                    //{
 
-                            retCli.IdCliente = int.Parse(drCli["ID"].ToString());
-                            retCli.NomeRazaoSocial = drCli["NOME_RAZAO_SOCIAL"].ToString();
-                            retCli.NomeFantasia = drCli["NOME_FANTASIA"].ToString();
-                            retCli.NumeroDocCPFCNPJ = drCli["NUM_DOC_CPF_CNPJ"].ToString();
-                            retCli.TipoPessoa = drCli["TIPO_PESSOA"].ToString();
-                            retCli.EnderecoLogradouro = drCli["LOGRADOURO"].ToString();
-                            retCli.EnderecoNumero = drCli["NUMERO"].ToString();
-                            retCli.EnderecoComplemento = drCli["COMPLEMENTO"].ToString();
-                            retCli.EnderecoBairro = drCli["BAIRRO"].ToString();
-                            retCli.EnderecoMunicipio = drCli["MUNICIPIO"].ToString();
-                            retCli.EnderecoUF = drCli["UF"].ToString();
-                            retCli.EnderecoCEP = drCli["CEP"].ToString();
-                            retCli.DataNascimento = drCli["DATA_NASCIMENTO"].ToString();
-                            retCli.Email1 = drCli["EMAIL1"].ToString();
-                            retCli.Email2 = drCli["EMAIL2"].ToString();
-                            retCli.Sexo = drCli["SEXO"].ToString();
-                            retCli.Observacao = drCli["OBSERVACAO"].ToString();
-                            retCli.DDDTelComercial = drCli["DDD_TEL_COMERCIAL"].ToString();
-                            retCli.NumeroTelComercial = drCli["NUM_TEL_COMERCIAL"].ToString();
-                            retCli.NumeroTelComercialRamal = drCli["NUM_TEL_COMERCIAL_RAMAL"].ToString();
-                            retCli.DDDTelResidencial = drCli["DDD_TEL_RESIDENCIAL"].ToString();
-                            retCli.NumeroTelResidencial = drCli["NUM_TEL_RESIDENCIAL"].ToString();
-                            retCli.DDDCelular = drCli["DDD_CELULAR"].ToString();
-                            retCli.NumeroCelular = drCli["NUM_CELULAR"].ToString();
-                            retCli.FlagAtivo = drCli["FLAG_ATIVO"].ToString();
-                            retCli.FlagExcluido = drCli["FLAG_EXCLUIDO"].ToString();
-                            retCli.DataInclusaoCliente = DateTime.Parse(drCli["DATA_INCLUSAO"].ToString());
-                            retCli.IdUsuarioInclusaoCliente = int.Parse(drCli["ID_USUARIO_INCLUSAO"].ToString());
+                    //    negCliente.Listar(entCli, ref dtClientes);
 
-                            if (!drCli["DATA_ALTERACAO"].ToString().Equals(""))
-                            { retCli.DataAlteracaoCliente = DateTime.Parse(drCli["DATA_ALTERACAO"].ToString()); }
-                            if (!drCli["ID_USUARIO_ALTERACAO"].ToString().Equals(""))
-                            { retCli.IdUsuarioAlteracaoCliente = int.Parse(drCli["ID_USUARIO_ALTERACAO"].ToString()); }
+                    //    foreach (DataRow drCli in dtClientes.Rows)
+                    //    {
+                    //        Entidades.Cliente retCli = new Entidades.Cliente();
 
-                            if (retUsu.Cliente == null)
-                            { retUsu.Cliente = new Entidades.Cliente(); }
+                    //        retCli.IdCliente = int.Parse(drCli["ID"].ToString());
+                    //        retCli.NomeRazaoSocial = drCli["NOME_RAZAO_SOCIAL"].ToString();
+                    //        retCli.NomeFantasia = drCli["NOME_FANTASIA"].ToString();
+                    //        retCli.NumeroDocCPFCNPJ = drCli["NUM_DOC_CPF_CNPJ"].ToString();
+                    //        retCli.TipoPessoa = drCli["TIPO_PESSOA"].ToString();
+                    //        retCli.EnderecoLogradouro = drCli["LOGRADOURO"].ToString();
+                    //        retCli.EnderecoNumero = drCli["NUMERO"].ToString();
+                    //        retCli.EnderecoComplemento = drCli["COMPLEMENTO"].ToString();
+                    //        retCli.EnderecoBairro = drCli["BAIRRO"].ToString();
+                    //        retCli.EnderecoMunicipio = drCli["MUNICIPIO"].ToString();
+                    //        retCli.EnderecoUF = drCli["UF"].ToString();
+                    //        retCli.EnderecoCEP = drCli["CEP"].ToString();
+                    //        retCli.DataNascimento = drCli["DATA_NASCIMENTO"].ToString();
+                    //        retCli.Email1 = drCli["EMAIL1"].ToString();
+                    //        retCli.Email2 = drCli["EMAIL2"].ToString();
+                    //        retCli.Sexo = drCli["SEXO"].ToString();
+                    //        retCli.Observacao = drCli["OBSERVACAO"].ToString();
+                    //        retCli.DDDTelComercial = drCli["DDD_TEL_COMERCIAL"].ToString();
+                    //        retCli.NumeroTelComercial = drCli["NUM_TEL_COMERCIAL"].ToString();
+                    //        retCli.NumeroTelComercialRamal = drCli["NUM_TEL_COMERCIAL_RAMAL"].ToString();
+                    //        retCli.DDDTelResidencial = drCli["DDD_TEL_RESIDENCIAL"].ToString();
+                    //        retCli.NumeroTelResidencial = drCli["NUM_TEL_RESIDENCIAL"].ToString();
+                    //        retCli.DDDCelular = drCli["DDD_CELULAR"].ToString();
+                    //        retCli.NumeroCelular = drCli["NUM_CELULAR"].ToString();
+                    //        retCli.FlagAtivo = drCli["FLAG_ATIVO"].ToString();
+                    //        retCli.FlagExcluido = drCli["FLAG_EXCLUIDO"].ToString();
+                    //        retCli.DataInclusaoCliente = DateTime.Parse(drCli["DATA_INCLUSAO"].ToString());
+                    //        retCli.IdUsuarioInclusaoCliente = int.Parse(drCli["ID_USUARIO_INCLUSAO"].ToString());
 
-                            retUsu.Cliente = retCli;
-                        }
-                    }
+                    //        if (!drCli["DATA_ALTERACAO"].ToString().Equals(""))
+                    //        { retCli.DataAlteracaoCliente = DateTime.Parse(drCli["DATA_ALTERACAO"].ToString()); }
+                    //        if (!drCli["ID_USUARIO_ALTERACAO"].ToString().Equals(""))
+                    //        { retCli.IdUsuarioAlteracaoCliente = int.Parse(drCli["ID_USUARIO_ALTERACAO"].ToString()); }
 
+                    //        if (retUsu.Cliente == null)
+                    //        { retUsu.Cliente = new Entidades.Cliente(); }
 
-                    dtPerfis = new DataTable();
-                    Entidades.PerfilAcesso entPA = new Entidades.PerfilAcesso();
-                    entPA.IdUsuario = retUsu.IdUsuario;
-                    negPerf.ListarPerfilByIdUsuario(entPA, ref dtPerfis);
+                    //        retUsu.Cliente = retCli;
+                    //    }
 
-                    foreach (DataRow drPerf in dtPerfis.Rows)
-                    {
-                        Entidades.PerfilAcesso retPerf = new Entidades.PerfilAcesso();
+                    //}
 
-                        if (!drPerf["DATA_ALTERACAO"].ToString().Equals(""))
-                        { retPerf.DataAlteracaoPerfilAcesso = DateTime.Parse(drPerf["DATA_ALTERACAO"].ToString()); }
+                    #endregion
 
+                    #region Carrega Perfil
 
-                        retPerf.DataInclusaoPerfilAcesso = DateTime.Parse(drPerf["DATA_INCLUSAO"].ToString());
-                        retPerf.DescricaoPerfilAcesso = drPerf["DESCRICAO_PERFIL"].ToString();
-                        retPerf.FlagAtivoPerfilAcesso = drPerf["FLAG_ATIVO"].ToString();
-                        retPerf.IdPerfilAcesso = int.Parse(drPerf["ID"].ToString());
-                        retPerf.IdPerfilAcessoUsuario = int.Parse(drPerf["ID_USUARIO"].ToString());
-
-                        if (!drPerf["ID_USUARIO_ALTERACAO"].ToString().Equals(""))
-                        {
-                            retPerf.IdUsuarioAlterasaoPerfilAcesso = int.Parse(drPerf["ID_USUARIO_ALTERACAO"].ToString());
-                            retPerf.NomeUsuarioAlteracao = drPerf["NOME_USUARIO_ALTERACAO"].ToString();
-                        }
-
-                        retPerf.IdUsuarioInclusaoPerfilAcesso = int.Parse(drPerf["ID_USUARIO_INCLUSAO"].ToString());
-                        retPerf.NomeUsuarioInclusao = drPerf["NOME_USUARIO_INCLUSAO"].ToString();
-
-                        lRetPerf.Add(retPerf);
-                    }
-
-                    if (retUsu.Perfil == null)
-                    { retUsu.Perfil = new List<Entidades.PerfilAcesso>(); }
-
-                    retUsu.Perfil.AddRange(lRetPerf);
+                    //dtPerfis = new DataTable();
+                    //Entidades.PerfilAcesso entPA = new Entidades.PerfilAcesso();
+                    //entPA.IdUsuario = retUsu.IdUsuario;
 
 
-                    dtProdutos = new DataTable();
-                    negProd.ListarByIdUsuario(new Entidades.Usuario() { IdUsuario = retUsu.IdUsuario }, ref dtProdutos);
+                    //negPerf.ListarPerfilByIdUsuario(entPA, ref dtPerfis);
 
-                    foreach (DataRow drProd in dtProdutos.Rows)
-                    {
-                        Entidades.Produto retProd = new Entidades.Produto();
+                    //foreach (DataRow drPerf in dtPerfis.Rows)
+                    //{
+                    //    Entidades.PerfilAcesso retPerf = new Entidades.PerfilAcesso();
 
-                        retProd.IdProduto = int.Parse(drProd["ID_PROD"].ToString());
-                        retProd.NomeInterno = drProd["NOME_INTERNO_PROD"].ToString();
-
-
-                        retProd.NomeProduto = drProd["NOME_PRODUTO"].ToString();
-                        retProd.DescricaoProduto = drProd["DESCRICAO_PROD"].ToString();
-                        retProd.LinkImagem1 = drProd["LINK_IMAGEM_1"].ToString();
-                        retProd.LinkImagem2 = drProd["LINK_IMAGEM_2"].ToString();
-                        retProd.LinkImagem3 = drProd["LINK_IMAGEM_3"].ToString();
-                        retProd.LinkNavegacaoWeb = drProd["LINK_NAVEGACAO_WEB"].ToString();
-                        retProd.FlagProdutoWebService = drProd["FLAG_WEBSERVICE"].ToString();
-                        retProd.FlagAtivoProduto = drProd["FLAG_ATIVO_PROD"].ToString();
-
-                        if (!drProd["DATA_INC_PROD"].ToString().Equals(""))
-                        { retProd.DataInclusaoProduto = DateTime.Parse(drProd["DATA_INC_PROD"].ToString()); }
-
-                        if (!drProd["ID_USUARIO_INC_PROD"].ToString().Equals(""))
-                        { retProd.IdUsuarioInclusaoProduto = int.Parse(drProd["ID_USUARIO_INC_PROD"].ToString()); }
-
-                        if (!drProd["DATA_ALT_PROD"].ToString().Equals(""))
-                        { retProd.DataAlteracaoProduto = DateTime.Parse(drProd["DATA_ALT_PROD"].ToString()); }
-
-                        if (!drProd["ID_USUARIO_ALT_PROD"].ToString().Equals(""))
-                        { retProd.IdUsuarioAlteracaoProduto = int.Parse(drProd["ID_USUARIO_ALT_PROD"].ToString()); }
+                    //    if (!drPerf["DATA_ALTERACAO"].ToString().Equals(""))
+                    //    { retPerf.DataAlteracaoPerfilAcesso = DateTime.Parse(drPerf["DATA_ALTERACAO"].ToString()); }
 
 
-                        if (!drProd["ID_PROD_PRECO"].ToString().Equals(""))
-                        { retProd.IdPrecoProduto = int.Parse(drProd["ID_PROD_PRECO"].ToString()); }
+                    //    retPerf.DataInclusaoPerfilAcesso = DateTime.Parse(drPerf["DATA_INCLUSAO"].ToString());
+                    //    retPerf.DescricaoPerfilAcesso = drPerf["DESCRICAO_PERFIL"].ToString();
+                    //    retPerf.FlagAtivoPerfilAcesso = drPerf["FLAG_ATIVO"].ToString();
+                    //    retPerf.IdPerfilAcesso = int.Parse(drPerf["ID"].ToString());
+                    //    retPerf.IdPerfilAcessoUsuario = int.Parse(drPerf["ID_USUARIO"].ToString());
 
-                        if (!drProd["PRECO"].ToString().Equals(""))
-                        { retProd.PrecoProduto = decimal.Parse(drProd["PRECO"].ToString()); }
+                    //    if (!drPerf["ID_USUARIO_ALTERACAO"].ToString().Equals(""))
+                    //    {
+                    //        retPerf.IdUsuarioAlterasaoPerfilAcesso = int.Parse(drPerf["ID_USUARIO_ALTERACAO"].ToString());
+                    //        retPerf.NomeUsuarioAlteracao = drPerf["NOME_USUARIO_ALTERACAO"].ToString();
+                    //    }
 
-                        if (!drProd["DT_INI_VIGE_PROD_PRECO"].ToString().Equals(""))
-                        { retProd.DataInicioVigencia = DateTime.Parse(drProd["DT_INI_VIGE_PROD_PRECO"].ToString()); }
+                    //    retPerf.IdUsuarioInclusaoPerfilAcesso = int.Parse(drPerf["ID_USUARIO_INCLUSAO"].ToString());
+                    //    retPerf.NomeUsuarioInclusao = drPerf["NOME_USUARIO_INCLUSAO"].ToString();
 
-                        retProd.FlagAtivoPrecoProduto = drProd["FLAG_ATIVO_PROD_PRECO"].ToString();
+                    //    lRetPerf.Add(retPerf);
+                    //}
 
-                        if (!drProd["DATA_INC_PROD_PRECO"].ToString().Equals(""))
-                        { retProd.DataInclusaoPrecoProduto = DateTime.Parse(drProd["DATA_INC_PROD_PRECO"].ToString()); }
+                    //if (retUsu.Perfil == null)
+                    //{ retUsu.Perfil = new List<Entidades.PerfilAcesso>(); }
 
-                        if (!drProd["ID_USUARIO_INC_PROD_PRECO"].ToString().Equals(""))
-                        { retProd.IdUsuarioInclusaoPrecoProduto = int.Parse(drProd["ID_USUARIO_INC_PROD_PRECO"].ToString()); }
+                    //retUsu.Perfil.AddRange(lRetPerf);
 
-                        if (!drProd["DATA_ALT_PROD_PRECO"].ToString().Equals(""))
-                        { retProd.DataAlteracaoPrecoProduto = DateTime.Parse(drProd["DATA_ALT_PROD_PRECO"].ToString()); }
+                    #endregion
 
-                        if (!drProd["ID_USUARIO_ALT_PROD_PRECO"].ToString().Equals(""))
-                        { retProd.IdUsuarioAlteracaoPrecoProduto = int.Parse(drProd["ID_USUARIO_ALT_PROD_PRECO"].ToString()); }
+                    #region Carrega Produto
 
-                        if (!drProd["DESCONTO_OFERECIDO"].ToString().Equals(""))
-                        { retProd.DescontoOferecidoPrecoProduto = Decimal.Parse(drProd["DESCONTO_OFERECIDO"].ToString()); }
+                    //dtProdutos = new DataTable();
+                    //negProd.ListarByIdUsuario(new Entidades.Usuario() { IdUsuario = retUsu.IdUsuario }, ref dtProdutos);
 
+                    //foreach (DataRow drProd in dtProdutos.Rows)
+                    //{
+                    //    Entidades.Produto retProd = new Entidades.Produto();
 
-                        if (!drProd["ID_CATEGORIA_PROD"].ToString().Equals(""))
-                        { retProd.CategoriaProduto.IdCategoria = int.Parse(drProd["ID_CATEGORIA_PROD"].ToString()); }
+                    //    retProd.IdProduto = int.Parse(drProd["ID_PROD"].ToString());
+                    //    retProd.NomeInterno = drProd["NOME_INTERNO_PROD"].ToString();
 
-                        retProd.CategoriaProduto.Nome = drProd["NOME_CATEGORIA_PROD"].ToString();
-                        retProd.CategoriaProduto.Descricao = drProd["DESC_CATEGORIA_PROD"].ToString();
-                        retProd.CategoriaProduto.FlagAtivo = drProd["FLAG_ATIVO_CATEGORIA_PROD"].ToString();
+                    //    retProd.NomeProduto = drProd["NOME_PRODUTO"].ToString();
+                    //    retProd.DescricaoProduto = drProd["DESCRICAO_PROD"].ToString();
+                    //    retProd.LinkImagem1 = drProd["LINK_IMAGEM_1"].ToString();
+                    //    retProd.LinkImagem2 = drProd["LINK_IMAGEM_2"].ToString();
+                    //    retProd.LinkImagem3 = drProd["LINK_IMAGEM_3"].ToString();
+                    //    retProd.LinkNavegacaoWeb = drProd["LINK_NAVEGACAO_WEB"].ToString();
+                    //    retProd.FlagProdutoWebService = drProd["FLAG_WEBSERVICE"].ToString();
+                    //    retProd.FlagAtivoProduto = drProd["FLAG_ATIVO_PROD"].ToString();
 
-                        if (!drProd["DATA_INC_CATEGORIA_PROD"].ToString().Equals(""))
-                        { retProd.CategoriaProduto.DataInclusao = DateTime.Parse(drProd["DATA_INC_CATEGORIA_PROD"].ToString()); }
+                    //    if (!drProd["DATA_INC_PROD"].ToString().Equals(""))
+                    //    { retProd.DataInclusaoProduto = DateTime.Parse(drProd["DATA_INC_PROD"].ToString()); }
 
-                        if (!drProd["ID_USUARIO_INC_CATEGORIA_PROD"].ToString().Equals(""))
-                        { retProd.CategoriaProduto.IdUsuarioInclusao = int.Parse(drProd["ID_USUARIO_INC_CATEGORIA_PROD"].ToString()); }
+                    //    if (!drProd["ID_USUARIO_INC_PROD"].ToString().Equals(""))
+                    //    { retProd.IdUsuarioInclusaoProduto = int.Parse(drProd["ID_USUARIO_INC_PROD"].ToString()); }
 
-                        if (!drProd["DATA_ALT_CATEGORIA_PROD"].ToString().Equals(""))
-                        { retProd.CategoriaProduto.DataAlteracao = DateTime.Parse(drProd["DATA_ALT_CATEGORIA_PROD"].ToString()); }
+                    //    if (!drProd["DATA_ALT_PROD"].ToString().Equals(""))
+                    //    { retProd.DataAlteracaoProduto = DateTime.Parse(drProd["DATA_ALT_PROD"].ToString()); }
 
-                        if (!drProd["ID_USUARIO_ALT_CATEGORIA_PROD"].ToString().Equals(""))
-                        { retProd.CategoriaProduto.IdUsuarioAlteracao = int.Parse(drProd["ID_USUARIO_ALT_CATEGORIA_PROD"].ToString()); }
+                    //    if (!drProd["ID_USUARIO_ALT_PROD"].ToString().Equals(""))
+                    //    { retProd.IdUsuarioAlteracaoProduto = int.Parse(drProd["ID_USUARIO_ALT_PROD"].ToString()); }
 
-                        lRetProduto.Add(retProd);
-                    }
+                    //    if (!drProd["ID_PROD_PRECO"].ToString().Equals(""))
+                    //    { retProd.IdPrecoProduto = int.Parse(drProd["ID_PROD_PRECO"].ToString()); }
 
-                    if (retUsu.Produtos == null)
-                    { retUsu.Produtos = new List<Entidades.Produto>(); }
+                    //    if (!drProd["PRECO"].ToString().Equals(""))
+                    //    { retProd.PrecoProduto = decimal.Parse(drProd["PRECO"].ToString()); }
 
-                    retUsu.Produtos.AddRange(lRetProduto);
+                    //    if (!drProd["DT_INI_VIGE_PROD_PRECO"].ToString().Equals(""))
+                    //    { retProd.DataInicioVigencia = DateTime.Parse(drProd["DT_INI_VIGE_PROD_PRECO"].ToString()); }
 
+                    //    retProd.FlagAtivoPrecoProduto = drProd["FLAG_ATIVO_PROD_PRECO"].ToString();
+
+                    //    if (!drProd["DATA_INC_PROD_PRECO"].ToString().Equals(""))
+                    //    { retProd.DataInclusaoPrecoProduto = DateTime.Parse(drProd["DATA_INC_PROD_PRECO"].ToString()); }
+
+                    //    if (!drProd["ID_USUARIO_INC_PROD_PRECO"].ToString().Equals(""))
+                    //    { retProd.IdUsuarioInclusaoPrecoProduto = int.Parse(drProd["ID_USUARIO_INC_PROD_PRECO"].ToString()); }
+
+                    //    if (!drProd["DATA_ALT_PROD_PRECO"].ToString().Equals(""))
+                    //    { retProd.DataAlteracaoPrecoProduto = DateTime.Parse(drProd["DATA_ALT_PROD_PRECO"].ToString()); }
+
+                    //    if (!drProd["ID_USUARIO_ALT_PROD_PRECO"].ToString().Equals(""))
+                    //    { retProd.IdUsuarioAlteracaoPrecoProduto = int.Parse(drProd["ID_USUARIO_ALT_PROD_PRECO"].ToString()); }
+
+                    //    if (!drProd["DESCONTO_OFERECIDO"].ToString().Equals(""))
+                    //    { retProd.DescontoOferecidoPrecoProduto = Decimal.Parse(drProd["DESCONTO_OFERECIDO"].ToString()); }
+
+                    //    if (!drProd["ID_CATEGORIA_PROD"].ToString().Equals(""))
+                    //    { retProd.CategoriaProduto.IdCategoria = int.Parse(drProd["ID_CATEGORIA_PROD"].ToString()); }
+
+                    //    retProd.CategoriaProduto.Nome = drProd["NOME_CATEGORIA_PROD"].ToString();
+                    //    retProd.CategoriaProduto.Descricao = drProd["DESC_CATEGORIA_PROD"].ToString();
+                    //    retProd.CategoriaProduto.FlagAtivo = drProd["FLAG_ATIVO_CATEGORIA_PROD"].ToString();
+
+                    //    if (!drProd["DATA_INC_CATEGORIA_PROD"].ToString().Equals(""))
+                    //    { retProd.CategoriaProduto.DataInclusao = DateTime.Parse(drProd["DATA_INC_CATEGORIA_PROD"].ToString()); }
+
+                    //    if (!drProd["ID_USUARIO_INC_CATEGORIA_PROD"].ToString().Equals(""))
+                    //    { retProd.CategoriaProduto.IdUsuarioInclusao = int.Parse(drProd["ID_USUARIO_INC_CATEGORIA_PROD"].ToString()); }
+
+                    //    if (!drProd["DATA_ALT_CATEGORIA_PROD"].ToString().Equals(""))
+                    //    { retProd.CategoriaProduto.DataAlteracao = DateTime.Parse(drProd["DATA_ALT_CATEGORIA_PROD"].ToString()); }
+
+                    //    if (!drProd["ID_USUARIO_ALT_CATEGORIA_PROD"].ToString().Equals(""))
+                    //    { retProd.CategoriaProduto.IdUsuarioAlteracao = int.Parse(drProd["ID_USUARIO_ALT_CATEGORIA_PROD"].ToString()); }
+
+                    //    lRetProduto.Add(retProd);
+                    //}
+
+                    //if (retUsu.Produtos == null)
+                    //{ retUsu.Produtos = new List<Entidades.Produto>(); }
+
+                    //retUsu.Produtos.AddRange(lRetProduto);
+
+                    #endregion
 
                     lRetUsu.Add(retUsu);
 
                 }
-                
+
                 return lRetUsu;
             }
             catch (Exception ex)

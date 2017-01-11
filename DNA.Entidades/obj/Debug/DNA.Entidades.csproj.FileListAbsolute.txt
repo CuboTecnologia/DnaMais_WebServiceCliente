@@ -8,3 +8,8 @@ C:\_ProjetoDNA\Fontes Notebook Katia\DNA\DNAWebSolution2.0\DNAWebSolution2.0\DNA
 C:\_ProjetoDNA\Fontes Notebook Katia\DNA\DNAWebSolution2.0\DNAWebSolution2.0\DNA.Entidades\obj\Debug\DNA.Entidades.csprojResolveAssemblyReference.cache
 C:\_ProjetoDNA\Fontes Notebook Katia\DNA\DNAWebSolution2.0\DNAWebSolution2.0\DNA.Entidades\obj\Debug\DNA.Entidades.dll
 C:\_ProjetoDNA\Fontes Notebook Katia\DNA\DNAWebSolution2.0\DNAWebSolution2.0\DNA.Entidades\obj\Debug\DNA.Entidades.pdb
+C:\_ProjetoDNA\Sistemas\DNAWebSolution2.0\DNA.Entidades\bin\Debug\DNA.Entidades.dll
+C:\_ProjetoDNA\Sistemas\DNAWebSolution2.0\DNA.Entidades\bin\Debug\DNA.Entidades.pdb
+C:\_ProjetoDNA\Sistemas\DNAWebSolution2.0\DNA.Entidades\obj\Debug\DNA.Entidades.csprojResolveAssemblyReference.cache
+C:\_ProjetoDNA\Sistemas\DNAWebSolution2.0\DNA.Entidades\obj\Debug\DNA.Entidades.dll
+C:\_ProjetoDNA\Sistemas\DNAWebSolution2.0\DNA.Entidades\obj\Debug\DNA.Entidades.pdb

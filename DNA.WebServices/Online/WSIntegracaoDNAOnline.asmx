@@ -1,1 +1,1 @@
-﻿<%@ WebService Language="C#" CodeBehind="WSIntegracaoDNAOnline.asmx.cs" Class="DNA.WebServices.Online.WSIntegracaoDNAOnline" %>
+﻿<%@ WebService Language="C#" CodeBehind="WSIntegracaoDNAINFO.asmx.cs" Class="DNA.WebServices.Online.WSIntegracaoDNAOnline" %>

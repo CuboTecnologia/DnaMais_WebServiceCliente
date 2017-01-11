@@ -49,7 +49,7 @@ namespace DNA.Dados
                     arParms[4].Direction = ParameterDirection.Input;
                     arParms[4].Value = fornec.FlagAtivo; 
 
-                    oConn.Execute("DNAONLINE.P_L_FORNECEDORES", arParms, ref oDT);
+                    oConn.Execute("DNAINFO.P_L_FORNECEDORES", arParms, ref oDT);
                 }
                 catch (Exception ex)
                 { throw ex; }
@@ -95,7 +95,7 @@ namespace DNA.Dados
                     if (fornec.Produtos != null && fornec.Produtos.Count > 0)
                     { arParms[2].Value = fornec.Produtos.FirstOrDefault().NomeProduto; }
 
-                    oConn.Execute("DNAONLINE.P_L_ORIGEM_PRODUTO_CONSULTADO", arParms, ref oDT);
+                    oConn.Execute("DNAINFO.P_L_ORIGEM_PRODUTO_CONSULTADO", arParms, ref oDT);
                 }
                 catch (Exception ex)
                 { throw ex; }

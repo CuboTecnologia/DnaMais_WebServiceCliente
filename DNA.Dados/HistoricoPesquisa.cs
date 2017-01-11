@@ -73,7 +73,7 @@ namespace DNA.Dados
                     arParms[8].Direction = ParameterDirection.Input;
                     arParms[8].Value = cli.FiltroUtilizadoPesquisa;
 
-                    oConn.Execute("DNAONLINE.P_I_HISTORICO_CONSULTA", arParms, ref oDT);
+                    oConn.Execute("DNAINFO.P_I_HISTORICO_CONSULTA", arParms, ref oDT);
                 }
                 catch (Exception ex)
                 { throw ex; }
@@ -146,7 +146,7 @@ namespace DNA.Dados
                     arParms[7].Direction = ParameterDirection.Input;
                     if (cli.IdUsuarioAlteracao == 0) { arParms[7].Value = DBNull.Value; } else { arParms[7].Value = cli.IdUsuarioAlteracao; }
 
-                    oConn.Execute("DNAONLINE.P_I_HISTORICO_FORNECEDOR", arParms, ref oDT);
+                    oConn.Execute("DNAINFO.P_I_HISTORICO_FORNECEDOR", arParms, ref oDT);
                     oConn.Commit();
                 }
                 catch (Exception ex)

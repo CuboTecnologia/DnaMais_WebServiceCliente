@@ -16,3 +16,12 @@ C:\_ProjetoDNA\Fontes Notebook Katia\DNA\DNAWebSolution2.0\DNAWebSolution2.0\DNA
 C:\_ProjetoDNA\Fontes Notebook Katia\DNA\DNAWebSolution2.0\DNAWebSolution2.0\DNA.Dados\obj\Debug\DNA.Dados.csprojResolveAssemblyReference.cache
 C:\_ProjetoDNA\Fontes Notebook Katia\DNA\DNAWebSolution2.0\DNAWebSolution2.0\DNA.Dados\obj\Debug\DNA.Dados.dll
 C:\_ProjetoDNA\Fontes Notebook Katia\DNA\DNAWebSolution2.0\DNAWebSolution2.0\DNA.Dados\obj\Debug\DNA.Dados.pdb
+C:\_ProjetoDNA\Sistemas\DNAWebSolution2.0\DNA.Dados\bin\Debug\DNA.Dados.dll
+C:\_ProjetoDNA\Sistemas\DNAWebSolution2.0\DNA.Dados\bin\Debug\DNA.Dados.pdb
+C:\_ProjetoDNA\Sistemas\DNAWebSolution2.0\DNA.Dados\bin\Debug\DNA.Entidades.dll
+C:\_ProjetoDNA\Sistemas\DNAWebSolution2.0\DNA.Dados\bin\Debug\DNA.Util.dll
+C:\_ProjetoDNA\Sistemas\DNAWebSolution2.0\DNA.Dados\bin\Debug\DNA.Entidades.pdb
+C:\_ProjetoDNA\Sistemas\DNAWebSolution2.0\DNA.Dados\bin\Debug\DNA.Util.pdb
+C:\_ProjetoDNA\Sistemas\DNAWebSolution2.0\DNA.Dados\obj\Debug\DNA.Dados.csprojResolveAssemblyReference.cache
+C:\_ProjetoDNA\Sistemas\DNAWebSolution2.0\DNA.Dados\obj\Debug\DNA.Dados.dll
+C:\_ProjetoDNA\Sistemas\DNAWebSolution2.0\DNA.Dados\obj\Debug\DNA.Dados.pdb

@@ -24,3 +24,18 @@ C:\_ProjetoDNA\Fontes Notebook Katia\DNA\DNAWebSolution2.0\DNAWebSolution2.0\DNA
 C:\_ProjetoDNA\Fontes Notebook Katia\DNA\DNAWebSolution2.0\DNAWebSolution2.0\DNA.WebServices\obj\Debug\DNA.WebServices.csprojResolveAssemblyReference.cache
 C:\_ProjetoDNA\Fontes Notebook Katia\DNA\DNAWebSolution2.0\DNAWebSolution2.0\DNA.WebServices\obj\Debug\DNA.WebServices.dll
 C:\_ProjetoDNA\Fontes Notebook Katia\DNA\DNAWebSolution2.0\DNAWebSolution2.0\DNA.WebServices\obj\Debug\DNA.WebServices.pdb
+C:\_ProjetoDNA\Sistemas\DNAWebSolution2.0\DNA.WebServices\obj\Debug\DNA.WebServices.csprojResolveAssemblyReference.cache
+C:\_ProjetoDNA\Sistemas\DNAWebSolution2.0\DNA.WebServices\obj\Debug\DNA.WebServices.dll
+C:\_ProjetoDNA\Sistemas\DNAWebSolution2.0\DNA.WebServices\obj\Debug\DNA.WebServices.pdb
+C:\_ProjetoDNA\Sistemas\DNAWebSolution2.0\DNA.WebServices\bin\DNA.WebServices.dll
+C:\_ProjetoDNA\Sistemas\DNAWebSolution2.0\DNA.WebServices\bin\DNA.WebServices.pdb
+C:\_ProjetoDNA\Sistemas\DNAWebSolution2.0\DNA.WebServices\bin\DNA.Dados.dll
+C:\_ProjetoDNA\Sistemas\DNAWebSolution2.0\DNA.WebServices\bin\DNA.Entidades.dll
+C:\_ProjetoDNA\Sistemas\DNAWebSolution2.0\DNA.WebServices\bin\DNA.Negocios.dll
+C:\_ProjetoDNA\Sistemas\DNAWebSolution2.0\DNA.WebServices\bin\DNA.Util.dll
+C:\_ProjetoDNA\Sistemas\DNAWebSolution2.0\DNA.WebServices\bin\DNAMais.Framework.dll
+C:\_ProjetoDNA\Sistemas\DNAWebSolution2.0\DNA.WebServices\bin\DNAMais.Framework.pdb
+C:\_ProjetoDNA\Sistemas\DNAWebSolution2.0\DNA.WebServices\bin\DNA.Dados.pdb
+C:\_ProjetoDNA\Sistemas\DNAWebSolution2.0\DNA.WebServices\bin\DNA.Entidades.pdb
+C:\_ProjetoDNA\Sistemas\DNAWebSolution2.0\DNA.WebServices\bin\DNA.Negocios.pdb
+C:\_ProjetoDNA\Sistemas\DNAWebSolution2.0\DNA.WebServices\bin\DNA.Util.pdb

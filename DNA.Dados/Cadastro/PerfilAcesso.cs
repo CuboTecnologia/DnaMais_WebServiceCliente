@@ -43,7 +43,7 @@ namespace DNA.Dados.Cadastro
                     arParms[3].Direction = ParameterDirection.Input;
                     arParms[3].Value = usu.SenhaUsuario;
 
-                    oConn.Execute("DNAONLINE.P_L_PERFIS", arParms, ref oDT);
+                    oConn.Execute("DNAINFO.P_L_PERFIS", arParms, ref oDT);
                 }
                 catch (Exception ex)
                 { throw ex; }
@@ -91,7 +91,7 @@ namespace DNA.Dados.Cadastro
                     arParms[3].Direction = ParameterDirection.Input;
                     arParms[3].Value = perf.IdUsuario;
 
-                    oConn.Execute("DNAONLINE.P_L_USU_PERF_ACESS", arParms, ref oDT);
+                    oConn.Execute("DNAINFO.P_L_USU_PERF_ACESS", arParms, ref oDT);
                 }
                 catch (Exception ex)
                 { throw ex; }

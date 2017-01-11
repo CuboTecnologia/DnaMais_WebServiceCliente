@@ -49,7 +49,7 @@ namespace DNA.Dados.Relatorios
                     arParms[3].Direction = ParameterDirection.Input;
                     arParms[3].Value = usu.IdUsuario;
 
-                    oConn.Execute("DNAONLINE.P_L_PRODUTOS_BY_USUARIO", arParms, ref oDT);
+                    oConn.Execute("DNAINFO.P_L_PRODUTOS_BY_USUARIO", arParms, ref oDT);
                 }
                 catch (Exception ex)
                 { throw ex; }
@@ -106,7 +106,7 @@ namespace DNA.Dados.Relatorios
                     arParms[4].Direction = ParameterDirection.Input;
                     arParms[4].Value = filtro.DataFinalPesquisa;
 
-                    oConn.Execute("DNAONLINE.P_REL_HISTORICO_BY_USUARIO", arParms, ref oDT);
+                    oConn.Execute("DNAINFO.P_REL_HISTORICO_BY_USUARIO", arParms, ref oDT);
                 }
                 catch (Exception ex)
                 { throw ex; }

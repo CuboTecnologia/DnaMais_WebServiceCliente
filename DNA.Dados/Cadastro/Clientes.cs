@@ -55,7 +55,7 @@ namespace DNA.Dados.Cadastro
                     arParms[5].Direction = ParameterDirection.Input;
                     arParms[5].Value = cli.FlagAtivo;
 
-                    oConn.Execute("DNAONLINE.P_L_CLIENTES", arParms, ref oDT);
+                    oConn.Execute("DNAINFO.P_L_CLIENTES", arParms, ref oDT);
                 }
                 catch (Exception ex)
                 { throw ex; }

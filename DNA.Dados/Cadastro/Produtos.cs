@@ -37,7 +37,7 @@ namespace DNA.Dados.Cadastro
                     arParms[2].Direction = ParameterDirection.Input;
                     arParms[2].Value = prod.IdPrecoProduto;
 
-                    oConn.Execute("DNAONLINE.P_L_PRODUTOS", arParms, ref oDT);
+                    oConn.Execute("DNAINFO.P_L_PRODUTOS", arParms, ref oDT);
                 }
                 catch (Exception ex)
                 { throw ex; }
@@ -85,7 +85,7 @@ namespace DNA.Dados.Cadastro
                     arParms[3].Direction = ParameterDirection.Input;
                     arParms[3].Value = cli.IdCliente;
 
-                    oConn.Execute("DNAONLINE.P_L_PRODUTOS_BY_CLIENTE", arParms, ref oDT);
+                    oConn.Execute("DNAINFO.P_L_PRODUTOS_BY_CLIENTE", arParms, ref oDT);
                 }
                 catch (Exception ex)
                 { throw ex; }
@@ -142,7 +142,7 @@ namespace DNA.Dados.Cadastro
                     else
                     { arParms[3].Value = cli.Usuarios.FirstOrDefault().IdUsuario; }
 
-                    oConn.Execute("DNAONLINE.P_L_PRODUTOS_BY_USUARIO", arParms, ref oDT);
+                    oConn.Execute("DNAINFO.P_L_PRODUTOS_BY_USUARIO", arParms, ref oDT);
                 }
                 catch (Exception ex)
                 { throw ex; }
@@ -196,7 +196,7 @@ namespace DNA.Dados.Cadastro
                     arParms[3].Direction = ParameterDirection.Input;
                     arParms[3].Value = usu.IdUsuario; 
 
-                    oConn.Execute("DNAONLINE.P_L_PRODUTOS_BY_USUARIO", arParms, ref oDT);
+                    oConn.Execute("DNAINFO.P_L_PRODUTOS_BY_USUARIO", arParms, ref oDT);
                 }
                 catch (Exception ex)
                 { throw ex; }
