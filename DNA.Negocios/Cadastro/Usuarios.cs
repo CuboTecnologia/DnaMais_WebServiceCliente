@@ -207,8 +207,8 @@ namespace DNA.Negocios.Cadastro
                     //    if (!drProd["ID_USUARIO_ALT_PROD"].ToString().Equals(""))
                     //    { retProd.IdUsuarioAlteracaoProduto = int.Parse(drProd["ID_USUARIO_ALT_PROD"].ToString()); }
 
-                    //    if (!drProd["ID_PROD_PRECO"].ToString().Equals(""))
-                    //    { retProd.IdPrecoProduto = int.Parse(drProd["ID_PROD_PRECO"].ToString()); }
+                    //    if (!drProd["CD_ITEM_PRODUTO"].ToString().Equals(""))
+                    //    { retProd.IdPrecoProduto = int.Parse(drProd["CD_ITEM_PRODUTO"].ToString()); }
 
                     //    if (!drProd["PRECO"].ToString().Equals(""))
                     //    { retProd.PrecoProduto = decimal.Parse(drProd["PRECO"].ToString()); }

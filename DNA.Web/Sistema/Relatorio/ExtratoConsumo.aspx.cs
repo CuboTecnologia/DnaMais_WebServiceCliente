@@ -152,7 +152,7 @@ namespace DNA.Web.Sistema.Relatorio
 
                         montarLink += nomePagina;
                         montarLink += "?NumeroConsulta=" + IdHistoricoConsulta;
-                        montarLink += "&IdProdutoPrecoPesquisado=" + Server.HtmlDecode(e.Row.Cells[14].Text).Trim();
+                        montarLink += "&codigoItemProdutoPesquisado=" + Server.HtmlDecode(e.Row.Cells[14].Text).Trim();
 
                         // APENAS DECOMENTAR QUANDO FOR SOLICITADO EXIBIÇÃO DOS DADOS DETALHADOS DA PESQUISA COMO NO SITE CHECKLOG
                         //linkIdHistoricoConsulta.NavigateUrl = montarLink;
@@ -215,7 +215,7 @@ namespace DNA.Web.Sistema.Relatorio
 
                 foreach (Entidades.Produto p in SortedList)
                 {
-                    ddlProdutos.Items.Add(new ListItem(p.NomeProduto, p.IdPrecoProduto.ToString()));
+                    ddlProdutos.Items.Add(new ListItem(p.NomeProduto, p.CodigoItemProduto.ToString()));
                 }
             }
             catch (Exception ex)
@@ -238,7 +238,7 @@ namespace DNA.Web.Sistema.Relatorio
                     filtro.IdUsuarioLogado = usuarioLogado.IdUsuario;
                     filtro.DataInicialPesquisa = DateTime.Parse(txtDataInicial.Text + " 00:00:00");
                     filtro.DataFinalPesquisa = DateTime.Parse(txtDataFinal.Text + " 23:59:59");
-                    filtro.IdProdutoPreco = int.Parse(ddlProdutos.SelectedItem.Value);
+                    filtro.CodigoItemProduto = ddlProdutos.SelectedItem.Value;
 
                     listRet = rel.ListarRelatorioAnaliticoUsuario(filtro);
 

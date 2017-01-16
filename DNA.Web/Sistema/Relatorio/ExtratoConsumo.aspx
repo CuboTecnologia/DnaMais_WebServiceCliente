@@ -150,7 +150,7 @@
                 <asp:BoundField DataField="NomeInternoProdutoConsultado" HeaderText="NomeInternoProdutoConsultado" />
                 <asp:BoundField DataField="StatusHistoricoPesquisa" HeaderText="StatusHistoricoPesquisa" />
                 <asp:BoundField DataField="TipoParametroPesquisado" HeaderText="TipoParametroPesquisado" />
-                <asp:BoundField DataField="IdProdutoPrecoPesquisado" HeaderText="IdProdutoPrecoPesquisado" />
+                <asp:BoundField DataField="codigoItemProdutoPesquisado" HeaderText="codigoItemProdutoPesquisado" />
             </Columns>
         </asp:GridView>
     </div>

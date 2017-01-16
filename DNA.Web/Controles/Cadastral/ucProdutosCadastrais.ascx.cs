@@ -20,11 +20,11 @@ namespace DNA.Web.Controles.Cadastral
                 if (Session["UsuarioLogado"] == null)
                 { Response.Redirect("/Home.aspx", false); }
 
-                Session["idProdutoPrecoAcessoWEB"] = "";
+                Session["codigoItemProdutoAcessoWEB"] = "";
 
                 if (hdCodigoProduto.Value.Trim().Length > 0)
                 {
-                    Session.Add("idProdutoPrecoAcessoWEB", hdCodigoProduto.Value);
+                    Session.Add("codigoItemProdutoAcessoWEB", hdCodigoProduto.Value);
 
                     switch (hdNomeInternoProduto.Value.Trim().ToUpper())
                     {

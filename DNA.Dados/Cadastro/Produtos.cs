@@ -29,13 +29,13 @@ namespace DNA.Dados.Cadastro
                     arParms[1].ParameterName = "P_ID_PRODUTO";
                     arParms[1].OracleDbType = OracleDbType.Int64;
                     arParms[1].Direction = ParameterDirection.Input;
-                    arParms[1].Value = prod.IdProduto;
+                    arParms[1].Value = prod.CodigoProduto;
 
                     arParms[2] = new OracleParameter();
                     arParms[2].ParameterName = "P_ID_PRODUTO_PRECO";
-                    arParms[2].OracleDbType = OracleDbType.Int64;
+                    arParms[2].OracleDbType = OracleDbType.Char;
                     arParms[2].Direction = ParameterDirection.Input;
-                    arParms[2].Value = prod.IdPrecoProduto;
+                    arParms[2].Value = prod.CodigoItemProduto;
 
                     oConn.Execute("DNAINFO.P_L_PRODUTOS", arParms, ref oDT);
                 }
@@ -71,13 +71,13 @@ namespace DNA.Dados.Cadastro
                     arParms[1].ParameterName = "P_ID_PRODUTO";
                     arParms[1].OracleDbType = OracleDbType.Int64;
                     arParms[1].Direction = ParameterDirection.Input;
-                    arParms[1].Value = prod.IdProduto;
+                    arParms[1].Value = prod.CodigoProduto;
 
                     arParms[2] = new OracleParameter();
                     arParms[2].ParameterName = "P_ID_PRODUTO_PRECO";
                     arParms[2].OracleDbType = OracleDbType.Int64;
                     arParms[2].Direction = ParameterDirection.Input;
-                    arParms[2].Value = prod.IdPrecoProduto;
+                    arParms[2].Value = prod.CodigoItemProduto;
 
                     arParms[3] = new OracleParameter();
                     arParms[3].ParameterName = "P_ID_CLIENTE";
@@ -122,7 +122,7 @@ namespace DNA.Dados.Cadastro
                     if (cli.Produtos == null || cli.Produtos.Count == 0)
                     { arParms[1].Value = 0; }
                     else
-                    { arParms[1].Value = cli.Produtos.FirstOrDefault().IdProduto; }
+                    { arParms[1].Value = cli.Produtos.FirstOrDefault().CodigoProduto; }
 
                     arParms[2] = new OracleParameter();
                     arParms[2].ParameterName = "P_ID_PRODUTO_PRECO";
@@ -131,7 +131,7 @@ namespace DNA.Dados.Cadastro
                     if (cli.Produtos == null || cli.Produtos.Count == 0)
                     { arParms[2].Value = 0; }
                     else
-                    { arParms[2].Value = cli.Produtos.FirstOrDefault().IdPrecoProduto; }
+                    { arParms[2].Value = cli.Produtos.FirstOrDefault().CodigoItemProduto; }
 
                     arParms[3] = new OracleParameter();
                     arParms[3].ParameterName = "P_ID_USUARIO";
@@ -179,7 +179,7 @@ namespace DNA.Dados.Cadastro
                     if (usu.Produtos == null || usu.Produtos.Count == 0)
                     { arParms[1].Value = 0; }
                     else
-                    { arParms[1].Value = usu.Produtos.FirstOrDefault().IdProduto; }
+                    { arParms[1].Value = usu.Produtos.FirstOrDefault().CodigoProduto; }
 
                     arParms[2] = new OracleParameter();
                     arParms[2].ParameterName = "P_ID_PRODUTO_PRECO";
@@ -188,7 +188,7 @@ namespace DNA.Dados.Cadastro
                     if (usu.Produtos == null || usu.Produtos.Count == 0)
                     { arParms[2].Value = 0; }
                     else
-                    { arParms[2].Value = usu.Produtos.FirstOrDefault().IdPrecoProduto; }
+                    { arParms[2].Value = usu.Produtos.FirstOrDefault().CodigoItemProduto; }
 
                     arParms[3] = new OracleParameter();
                     arParms[3].ParameterName = "P_ID_USUARIO";

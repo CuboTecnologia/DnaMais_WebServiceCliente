@@ -16,7 +16,7 @@ namespace DNA.Web.Sistema.Produto.FTP
         Entidades.Usuario usuarioLogado = new Entidades.Usuario();
         DateTime DataBR = TimeZoneInfo.ConvertTime(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById("E. South America Standard Time"));
 
-        //int idProdutoPreco = 0;
+        //string codigoItemProduto = string.Empty;
         int contaQtdeArquivosComMesmoNome = 0;
         string nomeOriginalArquivo = "";
         string diretorioLog = "../../../";
@@ -34,7 +34,7 @@ namespace DNA.Web.Sistema.Produto.FTP
                 {
                     //Remover
                     //context.Session["UsuarioLogado"] = new Entidades.Usuario() { IdUsuario = 1, Cliente = new Entidades.Cliente() { NomeFantasia = "DNA CONSULTORIA LÁLA" } }; 
-                    //context.Session["idProdutoPrecoAcessoWEB"] = 3;
+                    //context.Session["codigoItemProdutoAcessoWEB"] = 3;
 
                     if (context.Session["UsuarioLogado"] == null)
                     {
@@ -43,7 +43,7 @@ namespace DNA.Web.Sistema.Produto.FTP
                     else
                     {
                         usuarioLogado = (Entidades.Usuario)context.Session["UsuarioLogado"];
-                        //idProdutoPreco = int.Parse(context.Session["idProdutoPrecoAcessoWEB"].ToString());
+                        //codigoItemProduto = int.Parse(context.Session["codigoItemProdutoAcessoWEB"].ToString());
 
                         string nomeFantasia = usuarioLogado.Cliente.NomeFantasia.Replace(" ", "");
                         byte[] bytesNovoNomeFantasia = System.Text.Encoding.GetEncoding("iso-8859-8").GetBytes(nomeFantasia);

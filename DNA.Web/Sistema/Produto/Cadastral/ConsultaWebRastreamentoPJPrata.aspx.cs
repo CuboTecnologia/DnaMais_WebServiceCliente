@@ -13,7 +13,7 @@ namespace DNA.Web.Sistema.Produto.Cadastral
     {
         string diretorioLog = "../../../";
 
-        int idProdutoPreco = 0;
+        string codigoItemProduto = string.Empty;
         Entidades.Usuario usuarioLogado = new Entidades.Usuario();
         DateTime DataBR = TimeZoneInfo.ConvertTime(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById("E. South America Standard Time"));
 
@@ -39,8 +39,8 @@ namespace DNA.Web.Sistema.Produto.Cadastral
                     }
                 }
 
-                if (idProdutoPreco == 0)
-                { idProdutoPreco = int.Parse(Session["idProdutoPrecoAcessoWEB"].ToString()); }
+                if (codigoItemProduto == string.Empty)
+                { codigoItemProduto = Session["codigoItemProdutoAcessoWEB"].ToString(); }
 
                 this.Page.Title = "DNA+ - Produtos Cadastrais - DNA-PJ Prata";
 
@@ -49,7 +49,7 @@ namespace DNA.Web.Sistema.Produto.Cadastral
                     txtParametroInformado.Focus();
                     divEspacoBranco.Visible = true;
                     divResultado.Visible = false;
-                    //idProdutoPreco = int.Parse(Session["idProdutoPrecoAcessoWEB"].ToString());
+                    //codigoItemProduto = Session["codigoItemProdutoAcessoWEB"].ToString();
                 }
 
                 this.Form.DefaultButton = btnPesquisar.UniqueID;
@@ -256,7 +256,7 @@ namespace DNA.Web.Sistema.Produto.Cadastral
                     HTMLRetornado = xml.ToString();
 
                     string NomeInternoProduto = "WEB RASTREAMENTO PJ PRATA";
-                    Entidades.HistoricoPesquisa hist = SalvarHistoricoPesquisa("S", idProdutoPreco, "", numeroCNPJ, "CNPJ");
+                    Entidades.HistoricoPesquisa hist = SalvarHistoricoPesquisa("S", codigoItemProduto, "", numeroCNPJ, "CNPJ");
                     SalvarHistoricoFornecedor("S", hist.IdHistoricoConsulta, xml.ToString(), NomeInternoProduto, "DNA");
 
                     lblDataConsulta.Text = DataBR.ToString("dd/MM/yyyy") + " às " + DataBR.ToString("HH:mm");
@@ -282,7 +282,7 @@ namespace DNA.Web.Sistema.Produto.Cadastral
                     LimparCampos();
 
                     string NomeInternoProduto = "WEB RASTREAMENTO PJ PRATA";
-                    Entidades.HistoricoPesquisa hist = SalvarHistoricoPesquisa("N", idProdutoPreco, "", numeroCNPJ, "CNPJ");
+                    Entidades.HistoricoPesquisa hist = SalvarHistoricoPesquisa("N", codigoItemProduto, "", numeroCNPJ, "CNPJ");
                     SalvarHistoricoFornecedor("N", hist.IdHistoricoConsulta, "CNPJ NÃO LOCALIZADO.", NomeInternoProduto, "DNA");
 
                     lblDataConsulta.Text = DataBR.ToString("dd/MM/yyyy") + " às " + DataBR.ToString("HH:mm");
@@ -312,7 +312,8 @@ namespace DNA.Web.Sistema.Produto.Cadastral
                     {
                         case "PRODUTOPRECO":
                             {
-                                idProdutoPreco = int.Parse(Request.QueryString["PRODUTOPRECO"].ToString());
+                                //TODO: Analisar e ajustar o retorno QueryString["PRODUTOPRECO"] 
+                                codigoItemProduto = Request.QueryString["PRODUTOPRECO"].ToString();
                                 ProdutoPrecoEncontrado = true;
 
                                 break;
@@ -344,14 +345,14 @@ namespace DNA.Web.Sistema.Produto.Cadastral
 
         #region MÉTODOS PARA CONTROLE DAS CONSULTAS
 
-        private Entidades.HistoricoPesquisa SalvarHistoricoPesquisa(string pesquisaSucesso, int idProdutoPreco, string Observacao, string parametroUsadoPesquisa, string tipoParametroUsadoPesquisa)
+        private Entidades.HistoricoPesquisa SalvarHistoricoPesquisa(string pesquisaSucesso, string codigoItemProduto, string Observacao, string parametroUsadoPesquisa, string tipoParametroUsadoPesquisa)
         {
             try
             {
                 Entidades.HistoricoPesquisa hist = new Entidades.HistoricoPesquisa();
                 Negocios.HistoricoPesquisa n = new Negocios.HistoricoPesquisa();
 
-                hist.IdProdutoPreco = idProdutoPreco;
+                hist.CodigoItemProduto = codigoItemProduto;
                 hist.FiltroUtilizadoPesquisa = parametroUsadoPesquisa;
                 hist.IpOrigemConsulta = HttpContext.Current.Request.UserHostAddress.ToString();
                 hist.IdUsuarioConsulta = usuarioLogado.IdUsuario;
@@ -525,30 +526,30 @@ namespace DNA.Web.Sistema.Produto.Cadastral
 
                         if (strTipoPessoa.Equals("PJ"))
                         {
-                            int idProdutoPrecoPJPRATA = usuarioLogado.Produtos.Where(p => p.NomeInterno.ToUpper().Equals("WEB RASTREAMENTO PJ PRATA")).FirstOrDefault().IdPrecoProduto; ;
+                            string codigoProdutoPrecoPJPRATA = usuarioLogado.Produtos.Where(p => p.NomeInterno.ToUpper().Equals("WEB RASTREAMENTO PJ PRATA")).FirstOrDefault().CodigoItemProduto; ;
 
                             strDocumentoSocio = strDocumentoSocio.PadLeft(14, '0');
                             strDocumentoSocioFormatado = Util.Format.FormatString(strDocumentoSocio, Util.Format.TypeString.CNPJ);
 
-                            ((HyperLink)e.Row.Cells[0].FindControl("linkCPFCNPJ")).NavigateUrl = "ConsultaWebRastreamentoPJPrata.aspx?PRODUTOPRECO=" + idProdutoPrecoPJPRATA + "&CNPJ=" + strDocumentoSocio;
-                            ((HyperLink)e.Row.Cells[0].FindControl("linkNOME")).NavigateUrl = "ConsultaWebRastreamentoPJPrata.aspx?PRODUTOPRECO=" + idProdutoPrecoPJPRATA + "&CNPJ=" + strDocumentoSocio;
-                            ((HyperLink)e.Row.Cells[0].FindControl("linkQualificacao")).NavigateUrl = "ConsultaWebRastreamentoPJPrata.aspx?PRODUTOPRECO=" + idProdutoPrecoPJPRATA + "&CNPJ=" + strDocumentoSocio;
-                            ((HyperLink)e.Row.Cells[0].FindControl("linkDataEntradaSociedade")).NavigateUrl = "ConsultaWebRastreamentoPJPrata.aspx?PRODUTOPRECO=" + idProdutoPrecoPJPRATA + "&CNPJ=" + strDocumentoSocio;
-                            ((HyperLink)e.Row.Cells[0].FindControl("linkParticipacao")).NavigateUrl = "ConsultaWebRastreamentoPJPrata.aspx?PRODUTOPRECO=" + idProdutoPrecoPJPRATA + "&CNPJ=" + strDocumentoSocio;
+                            ((HyperLink)e.Row.Cells[0].FindControl("linkCPFCNPJ")).NavigateUrl = "ConsultaWebRastreamentoPJPrata.aspx?PRODUTOPRECO=" + codigoProdutoPrecoPJPRATA + "&CNPJ=" + strDocumentoSocio;
+                            ((HyperLink)e.Row.Cells[0].FindControl("linkNOME")).NavigateUrl = "ConsultaWebRastreamentoPJPrata.aspx?PRODUTOPRECO=" + codigoProdutoPrecoPJPRATA + "&CNPJ=" + strDocumentoSocio;
+                            ((HyperLink)e.Row.Cells[0].FindControl("linkQualificacao")).NavigateUrl = "ConsultaWebRastreamentoPJPrata.aspx?PRODUTOPRECO=" + codigoProdutoPrecoPJPRATA + "&CNPJ=" + strDocumentoSocio;
+                            ((HyperLink)e.Row.Cells[0].FindControl("linkDataEntradaSociedade")).NavigateUrl = "ConsultaWebRastreamentoPJPrata.aspx?PRODUTOPRECO=" + codigoProdutoPrecoPJPRATA + "&CNPJ=" + strDocumentoSocio;
+                            ((HyperLink)e.Row.Cells[0].FindControl("linkParticipacao")).NavigateUrl = "ConsultaWebRastreamentoPJPrata.aspx?PRODUTOPRECO=" + codigoProdutoPrecoPJPRATA + "&CNPJ=" + strDocumentoSocio;
                         }
                         else
                         {
-                            int idProdutoPrecoPFPRATA = usuarioLogado.Produtos.Where(p => p.NomeInterno.ToUpper().Equals("WEB RASTREAMENTO PF PRATA")).FirstOrDefault().IdPrecoProduto; ;
+                            string codigoProdutoPrecoPFPRATA = usuarioLogado.Produtos.Where(p => p.NomeInterno.ToUpper().Equals("WEB RASTREAMENTO PF PRATA")).FirstOrDefault().CodigoItemProduto; ;
 
                             strDocumentoSocio = strDocumentoSocio.PadLeft(11, '0');
                             strDocumentoSocioFormatado = Util.Format.FormatString(strDocumentoSocio, Util.Format.TypeString.CPF);
 
                             //((HyperLink)e.Row.Cells[0].FindControl("linkCPF")).Attributes.Add("onclick", "return confirm('Essa operação irá gerar uma nova fatura. Deseja continuar?');");
-                            ((HyperLink)e.Row.Cells[0].FindControl("linkCPFCNPJ")).NavigateUrl = "ConsultaWebRastreamentoPFPrata.aspx?PRODUTOPRECO=" + idProdutoPrecoPFPRATA + "&CPF=" + strDocumentoSocio;
-                            ((HyperLink)e.Row.Cells[0].FindControl("linkNOME")).NavigateUrl = "ConsultaWebRastreamentoPFPrata.aspx?PRODUTOPRECO=" + idProdutoPrecoPFPRATA + "&CPF=" + strDocumentoSocio;
-                            ((HyperLink)e.Row.Cells[0].FindControl("linkQualificacao")).NavigateUrl = "ConsultaWebRastreamentoPFPrata.aspx?PRODUTOPRECO=" + idProdutoPrecoPFPRATA + "&CPF=" + strDocumentoSocio;
-                            ((HyperLink)e.Row.Cells[0].FindControl("linkDataEntradaSociedade")).NavigateUrl = "ConsultaWebRastreamentoPFPrata.aspx?PRODUTOPRECO=" + idProdutoPrecoPFPRATA + "&CPF=" + strDocumentoSocio;
-                            ((HyperLink)e.Row.Cells[0].FindControl("linkParticipacao")).NavigateUrl = "ConsultaWebRastreamentoPFPrata.aspx?PRODUTOPRECO=" + idProdutoPrecoPFPRATA + "&CPF=" + strDocumentoSocio;
+                            ((HyperLink)e.Row.Cells[0].FindControl("linkCPFCNPJ")).NavigateUrl = "ConsultaWebRastreamentoPFPrata.aspx?PRODUTOPRECO=" + codigoProdutoPrecoPFPRATA + "&CPF=" + strDocumentoSocio;
+                            ((HyperLink)e.Row.Cells[0].FindControl("linkNOME")).NavigateUrl = "ConsultaWebRastreamentoPFPrata.aspx?PRODUTOPRECO=" + codigoProdutoPrecoPFPRATA + "&CPF=" + strDocumentoSocio;
+                            ((HyperLink)e.Row.Cells[0].FindControl("linkQualificacao")).NavigateUrl = "ConsultaWebRastreamentoPFPrata.aspx?PRODUTOPRECO=" + codigoProdutoPrecoPFPRATA + "&CPF=" + strDocumentoSocio;
+                            ((HyperLink)e.Row.Cells[0].FindControl("linkDataEntradaSociedade")).NavigateUrl = "ConsultaWebRastreamentoPFPrata.aspx?PRODUTOPRECO=" + codigoProdutoPrecoPFPRATA + "&CPF=" + strDocumentoSocio;
+                            ((HyperLink)e.Row.Cells[0].FindControl("linkParticipacao")).NavigateUrl = "ConsultaWebRastreamentoPFPrata.aspx?PRODUTOPRECO=" + codigoProdutoPrecoPFPRATA + "&CPF=" + strDocumentoSocio;
                         }
 
                         ((HyperLink)e.Row.Cells[0].FindControl("linkCPFCNPJ")).Text = strDocumentoSocioFormatado;

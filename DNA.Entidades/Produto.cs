@@ -7,8 +7,8 @@ namespace DNA.Entidades
 {
     public class Produto
     {
-        public int IdProduto { get; set; }
-        public int IdPrecoProduto { get; set; }
+        public string CodigoProduto { get; set; }
+        public string CodigoItemProduto { get; set; }
         public string NomeProduto { get; set; }
         public string NomeInterno { get; set; }
         public string LinkImagem1 { get; set; }
@@ -35,8 +35,8 @@ namespace DNA.Entidades
 
         public Produto()
         {
-            this.IdProduto = 0;
-            this.IdPrecoProduto = 0;
+            this.CodigoProduto = string.Empty;
+            this.CodigoItemProduto = string.Empty;
             this.NomeProduto = string.Empty;
             this.NomeInterno = string.Empty;
             this.LinkImagem1 = string.Empty;
@@ -62,7 +62,7 @@ namespace DNA.Entidades
             this.CategoriaProduto = new Categoria();
         }
 
-        public Produto(int idProduto, int idPrecoProduto, string nomeProduto, string descricaoProduto, Decimal precoProduto,
+        public Produto(string CodigoProduto, string codigoItemProduto, string nomeProduto, string descricaoProduto, Decimal precoProduto,
                        DateTime? dataInicioVigencia, DateTime? dataFimVigencia, string flagAtivoProduto, string flagAtivoPrecoProduto,
                        int? idUsuarioInclusaoProduto, int? idUsuarioAlteracaoProduto, int idUsuarioInclusaoPrecoProduto,
                        int? idUsuarioAlteracaoPrecoProduto, DateTime dataInclusaoProduto, DateTime? dataAlteracaoProduto,
@@ -71,8 +71,8 @@ namespace DNA.Entidades
                        string linkNavegacaoWeb)
         {
             this.DescontoOferecidoPrecoProduto = 0;
-            this.IdProduto = 0;
-            this.IdPrecoProduto = 0;
+            this.CodigoProduto = string.Empty;
+            this.CodigoItemProduto = string.Empty;
             this.NomeProduto = string.Empty;
             this.NomeInterno = string.Empty;
             this.LinkImagem1 = string.Empty;
@@ -95,8 +95,8 @@ namespace DNA.Entidades
             this.DataInclusaoPrecoProduto = null;
             this.DataAlteracaoPrecoProduto = null;
 
-            this.IdProduto = idProduto;
-            this.IdPrecoProduto = idPrecoProduto;
+            this.CodigoProduto = CodigoProduto;
+            this.CodigoItemProduto = codigoItemProduto;
             this.NomeProduto = nomeProduto;
             this.NomeInterno = nomeInterno;
             this.LinkImagem1 = linkImagem1;

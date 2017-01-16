@@ -33,3 +33,9 @@ C:\_ProjetoDNA\Sistemas\DNAWebSolution2.0\DNA.Web\bin\DNA.Util.pdb
 C:\_ProjetoDNA\Sistemas\DNAWebSolution2.0\DNA.Web\obj\Debug\DNA.Web.csprojResolveAssemblyReference.cache
 C:\_ProjetoDNA\Sistemas\DNAWebSolution2.0\DNA.Web\obj\Debug\DNA.Web.dll
 C:\_ProjetoDNA\Sistemas\DNAWebSolution2.0\DNA.Web\obj\Debug\DNA.Web.pdb
+C:\_ProjetoDNA\Sistemas\DNAWebSolution2.0\DNA.Web\bin\DNA.Negocios.dll
+C:\_ProjetoDNA\Sistemas\DNAWebSolution2.0\DNA.Web\bin\DNA.Dados.dll
+C:\_ProjetoDNA\Sistemas\DNAWebSolution2.0\DNA.Web\bin\DNAMais.Framework.dll
+C:\_ProjetoDNA\Sistemas\DNAWebSolution2.0\DNA.Web\bin\DNA.Negocios.pdb
+C:\_ProjetoDNA\Sistemas\DNAWebSolution2.0\DNA.Web\bin\DNA.Dados.pdb
+C:\_ProjetoDNA\Sistemas\DNAWebSolution2.0\DNA.Web\bin\DNAMais.Framework.pdb

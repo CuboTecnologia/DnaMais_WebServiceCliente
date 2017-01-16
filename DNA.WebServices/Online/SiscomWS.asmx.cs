@@ -203,8 +203,8 @@ namespace DNA.WebServices.Online
 
                             if (retorno.Output.DadosCadastrais.Nome.Trim().Equals("") && retorno.Output.Emails.Count == 0 && retorno.Output.Enderecos.Count == 0 && retorno.Output.Telefones.Count == 0)
                             {
-                                int idProdutoPreco = listProd.FirstOrDefault().IdPrecoProduto;
-                                Entidades.HistoricoPesquisa hist = SalvarHistoricoPesquisa("N", idProdutoPreco, "", numeroCPF, "CPF");
+                                string codigoItemProduto = listProd.FirstOrDefault().CodigoProduto;
+                                Entidades.HistoricoPesquisa hist = SalvarHistoricoPesquisa("N", codigoItemProduto, "", numeroCPF, "CPF");
 
                                 retorno.Input = retResponse.Input;
                                 retorno.ResponseError = retResponse.ResponseError;
@@ -228,8 +228,8 @@ namespace DNA.WebServices.Online
                             else
                             {
 
-                                int idProdutoPreco = listProd.FirstOrDefault().IdPrecoProduto;
-                                Entidades.HistoricoPesquisa hist = SalvarHistoricoPesquisa("S", idProdutoPreco, "", numeroCPF, "CPF");
+                                string codigoItemProduto = listProd.FirstOrDefault().CodigoItemProduto;
+                                Entidades.HistoricoPesquisa hist = SalvarHistoricoPesquisa("S", codigoItemProduto, "", numeroCPF, "CPF");
 
                                 retorno.Input = retResponse.Input;
                                 retorno.ResponseError = retResponse.ResponseError;
@@ -401,14 +401,14 @@ namespace DNA.WebServices.Online
 
         #region MÉTODOS PARA CONTROLE DAS CONSULTAS
 
-        private Entidades.HistoricoPesquisa SalvarHistoricoPesquisa(string pesquisaSucesso, int idProdutoPreco, string Observacao, string parametroUsadoPesquisa, string tipoParametroUsadoPesquisa)
+        private Entidades.HistoricoPesquisa SalvarHistoricoPesquisa(string pesquisaSucesso, string codigoItemProduto, string Observacao, string parametroUsadoPesquisa, string tipoParametroUsadoPesquisa)
         {
             try
             {
                 Entidades.HistoricoPesquisa hist = new Entidades.HistoricoPesquisa();
                 Negocios.HistoricoPesquisa n = new Negocios.HistoricoPesquisa();
 
-                hist.IdProdutoPreco = idProdutoPreco;
+                hist.CodigoItemProduto = codigoItemProduto;
                 hist.FiltroUtilizadoPesquisa = parametroUsadoPesquisa;
                 hist.IpOrigemConsulta = HttpContext.Current.Request.UserHostAddress.ToString();
                 hist.IdUsuarioConsulta = ((Entidades.Usuario)Session["ws_siscom_acesso"]).IdUsuario;

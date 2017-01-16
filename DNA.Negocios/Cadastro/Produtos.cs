@@ -15,6 +15,8 @@ namespace DNA.Negocios.Cadastro
         {
             try
             {
+                #region Codigo
+                
                 //Linq.CheckLogDBDataContext dc = new Linq.CheckLogDBDataContext(Linq.ConnectionString.GetStringConnCheckLog);
 
                 //dc.Connection.Open();
@@ -62,6 +64,8 @@ namespace DNA.Negocios.Cadastro
                 //    }
                 //}
 
+                #endregion
+
                 return true;
 
             }
@@ -75,6 +79,8 @@ namespace DNA.Negocios.Cadastro
         {
             try
             {
+                #region Codigo
+                
                 //Linq.CheckLogDBDataContext dc = new Linq.CheckLogDBDataContext(Linq.ConnectionString.GetStringConnCheckLog);
 
                 //dc.Connection.Open();
@@ -125,6 +131,8 @@ namespace DNA.Negocios.Cadastro
                 //    }
                 //}
 
+                #endregion
+
                 return true;
 
             }
@@ -139,8 +147,6 @@ namespace DNA.Negocios.Cadastro
             try
             {
                 List<Entidades.Produto> l = new List<Entidades.Produto>();
-
-                
 
                 return l;
 
@@ -187,11 +193,11 @@ namespace DNA.Negocios.Cadastro
 
                         #region Dados de Retorno do Produto
 
-                        if (!drPro["ID_PROD"].ToString().Trim().Equals(""))
-                        { retProd.IdProduto = int.Parse(drPro["ID_PROD"].ToString()); }
+                        if (!drPro["CD_PRODUTO"].ToString().Trim().Equals(""))
+                        { retProd.CodigoProduto = drPro["CD_PRODUTO"].ToString(); }
 
                         retProd.NomeInterno = drPro["NOME_INTERNO_PROD"].ToString();
-                        retProd.NomeProduto = drPro["NOME_PRODUTO"].ToString();
+                        retProd.NomeProduto = drPro["NM_PRODUTO"].ToString();
                         retProd.DescricaoProduto = drPro["DESCRICAO_PROD"].ToString();
                         retProd.LinkImagem1 = drPro["LINK_IMAGEM_1"].ToString();
                         retProd.LinkImagem2 = drPro["LINK_IMAGEM_2"].ToString();
@@ -238,8 +244,8 @@ namespace DNA.Negocios.Cadastro
 
                         #region Dados de Retorno do Preço Produto
 
-                        if (!drPro["ID_PROD_PRECO"].ToString().Trim().Equals(""))
-                        { retProd.IdPrecoProduto = int.Parse(drPro["ID_PROD_PRECO"].ToString()); }
+                        if (!drPro["CD_ITEM_PRODUTO"].ToString().Trim().Equals(""))
+                        { retProd.CodigoItemProduto = drPro["CD_ITEM_PRODUTO"].ToString(); }
 
                         if (!drPro["PRECO"].ToString().Trim().Equals(""))
                         { retProd.PrecoProduto = Decimal.Parse(drPro["PRECO"].ToString()); }
@@ -302,11 +308,11 @@ namespace DNA.Negocios.Cadastro
 
                         #region Dados de Retorno do Produto
 
-                        if (!drPro["ID_PROD"].ToString().Trim().Equals(""))
-                        { retProd.IdProduto = int.Parse(drPro["ID_PROD"].ToString()); }
+                        if (!drPro["CD_PRODUTO"].ToString().Trim().Equals(""))
+                        { retProd.CodigoProduto = drPro["CD_PRODUTO"].ToString(); }
 
                         retProd.NomeInterno = drPro["NOME_INTERNO_PROD"].ToString();
-                        retProd.NomeProduto = drPro["NOME_PRODUTO"].ToString();
+                        retProd.NomeProduto = drPro["NM_PRODUTO"].ToString();
                         retProd.DescricaoProduto = drPro["DESCRICAO_PROD"].ToString();
                         retProd.LinkImagem1 = drPro["LINK_IMAGEM_1"].ToString();
                         retProd.LinkImagem2 = drPro["LINK_IMAGEM_2"].ToString();
@@ -353,8 +359,8 @@ namespace DNA.Negocios.Cadastro
 
                         #region Dados de Retorno do Preço Produto
 
-                        if (!drPro["ID_PROD_PRECO"].ToString().Trim().Equals(""))
-                        { retProd.IdPrecoProduto = int.Parse(drPro["ID_PROD_PRECO"].ToString()); }
+                        if (!drPro["CD_ITEM_PRODUTO"].ToString().Trim().Equals(""))
+                        { retProd.CodigoItemProduto = drPro["CD_ITEM_PRODUTO"].ToString(); }
 
                         if (!drPro["PRECO"].ToString().Trim().Equals(""))
                         { retProd.PrecoProduto = Decimal.Parse(drPro["PRECO"].ToString()); }

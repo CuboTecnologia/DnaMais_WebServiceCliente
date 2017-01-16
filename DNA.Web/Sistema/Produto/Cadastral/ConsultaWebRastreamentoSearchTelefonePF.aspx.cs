@@ -13,7 +13,7 @@ namespace DNA.Web.Sistema.Produto.Cadastral
     {
         string diretorioLog = "../../../";
 
-        int idProdutoPreco = 0;
+        string codigoItemProduto = string.Empty;
         Entidades.Usuario usuarioLogado = new Entidades.Usuario();
         DateTime DataBR = TimeZoneInfo.ConvertTime(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById("E. South America Standard Time"));
 
@@ -22,7 +22,7 @@ namespace DNA.Web.Sistema.Produto.Cadastral
             //Remover
             //Entidades.Usuario usu = new Entidades.Usuario() { IdUsuario = 1 };
             //Session["UsuarioLogado"] = usu;
-            //Session["idProdutoPrecoAcessoWEB"] = 3;
+            //Session["codigoItemProdutoAcessoWEB"] = 3;
 
             try
             {
@@ -32,7 +32,7 @@ namespace DNA.Web.Sistema.Produto.Cadastral
                 { Response.Redirect("../../Home.aspx", false); return; }
 
                 usuarioLogado = (Entidades.Usuario)Session["UsuarioLogado"];
-                idProdutoPreco = int.Parse(Session["idProdutoPrecoAcessoWEB"].ToString());
+                codigoItemProduto = Session["codigoItemProdutoAcessoWEB"].ToString();
 
                 this.Page.Title = "DNA+ - Produtos Cadastrais - DNA-Search Telefone PF";
 
@@ -41,7 +41,7 @@ namespace DNA.Web.Sistema.Produto.Cadastral
                     txtDDD.Focus();
                     divEspacoBranco.Visible = true;
                     divResultado.Visible = false;
-                    //idProdutoPreco = int.Parse(Session["idProdutoPrecoAcessoWEB"].ToString());
+                    //codigoItemProduto = Session["codigoItemProdutoAcessoWEB"].ToString();
                 }
 
                 this.Form.DefaultButton = btnPesquisar.UniqueID;
@@ -140,7 +140,7 @@ namespace DNA.Web.Sistema.Produto.Cadastral
                 {
                     if (!Server.HtmlDecode(e.Row.Cells[4].Text).Trim().Equals(""))
                     {
-                        int idProdutoPrecoPFPRATA = usuarioLogado.Produtos.Where(p => p.NomeInterno.ToUpper().Equals("WEB RASTREAMENTO PF PRATA")).FirstOrDefault().IdPrecoProduto; ;
+                        string CodigoProdutoPrecoPFPRATA = usuarioLogado.Produtos.Where(p => p.NomeInterno.ToUpper().Equals("WEB RASTREAMENTO PF PRATA")).FirstOrDefault().CodigoItemProduto; ;
 
                         string strNome = "";
                         string strDataNascimento = "";
@@ -153,13 +153,13 @@ namespace DNA.Web.Sistema.Produto.Cadastral
                         numeroCPFFormatado = Util.Format.FormatString(numeroCPF, Util.Format.TypeString.CPF);
 
                         ((HyperLink)e.Row.Cells[0].FindControl("linkCPF")).Text = numeroCPFFormatado;
-                        ((HyperLink)e.Row.Cells[0].FindControl("linkCPF")).NavigateUrl = "ConsultaWebRastreamentoPFPrata.aspx?PRODUTOPRECO=" + idProdutoPrecoPFPRATA + "&CPF=" + numeroCPF;
+                        ((HyperLink)e.Row.Cells[0].FindControl("linkCPF")).NavigateUrl = "ConsultaWebRastreamentoPFPrata.aspx?PRODUTOPRECO=" + CodigoProdutoPrecoPFPRATA + "&CPF=" + numeroCPF;
                         //((HyperLink)e.Row.Cells[0].FindControl("linkCPF")).Attributes.Add("onclick", "return confirm('Essa operação irá gerar uma nova fatura. Deseja continuar?');");
 
                         strNome = Server.HtmlDecode(e.Row.Cells[5].Text);
 
                         ((HyperLink)e.Row.Cells[1].FindControl("linkNOME")).Text = strNome;
-                        ((HyperLink)e.Row.Cells[0].FindControl("linkNOME")).NavigateUrl = "ConsultaWebRastreamentoPFPrata.aspx?PRODUTOPRECO=" + idProdutoPrecoPFPRATA + "&CPF=" + numeroCPF;
+                        ((HyperLink)e.Row.Cells[0].FindControl("linkNOME")).NavigateUrl = "ConsultaWebRastreamentoPFPrata.aspx?PRODUTOPRECO=" + CodigoProdutoPrecoPFPRATA + "&CPF=" + numeroCPF;
 
                         strDataNascimento = Server.HtmlDecode(e.Row.Cells[6].Text);
                         if (strDataNascimento.Trim().Equals(""))
@@ -174,14 +174,14 @@ namespace DNA.Web.Sistema.Produto.Cadastral
                         }
 
                         ((HyperLink)e.Row.Cells[1].FindControl("linkDataNascimento")).Text = strDataNascimento;
-                        ((HyperLink)e.Row.Cells[0].FindControl("linkDataNascimento")).NavigateUrl = "ConsultaWebRastreamentoPFPrata.aspx?PRODUTOPRECO=" + idProdutoPrecoPFPRATA + "&CPF=" + numeroCPF;
+                        ((HyperLink)e.Row.Cells[0].FindControl("linkDataNascimento")).NavigateUrl = "ConsultaWebRastreamentoPFPrata.aspx?PRODUTOPRECO=" + CodigoProdutoPrecoPFPRATA + "&CPF=" + numeroCPF;
 
                         strNomeMae = Server.HtmlDecode(e.Row.Cells[7].Text);
                         if (strNomeMae.Trim().Equals(""))
                         { strNomeMae = "-"; }
 
                         ((HyperLink)e.Row.Cells[1].FindControl("linkNOMEMAE")).Text = strNomeMae;
-                        ((HyperLink)e.Row.Cells[0].FindControl("linkNOMEMAE")).NavigateUrl = "ConsultaWebRastreamentoPFPrata.aspx?PRODUTOPRECO=" + idProdutoPrecoPFPRATA + "&CPF=" + numeroCPF;
+                        ((HyperLink)e.Row.Cells[0].FindControl("linkNOMEMAE")).NavigateUrl = "ConsultaWebRastreamentoPFPrata.aspx?PRODUTOPRECO=" + CodigoProdutoPrecoPFPRATA + "&CPF=" + numeroCPF;
                     }
                 }
             }
@@ -253,7 +253,7 @@ namespace DNA.Web.Sistema.Produto.Cadastral
                     string parametrosPesquisado = "(" + filtro.DDD + ") " + filtro.NumeroTel;
 
                     string NomeInternoProduto = "WEB RASTREAMENTO SEARCH TELEFONE PF";
-                    Entidades.HistoricoPesquisa hist = SalvarHistoricoPesquisa("S", idProdutoPreco, "", parametrosPesquisado, "TELEFONE");
+                    Entidades.HistoricoPesquisa hist = SalvarHistoricoPesquisa("S", codigoItemProduto, "", parametrosPesquisado, "TELEFONE");
                     SalvarHistoricoFornecedor("S", hist.IdHistoricoConsulta, xml.ToString(), NomeInternoProduto, "DNA");
 
                     lblDataConsulta.Text = DataBR.ToString("dd/MM/yyyy") + " às " + DataBR.ToString("HH:mm");
@@ -281,7 +281,7 @@ namespace DNA.Web.Sistema.Produto.Cadastral
                     string parametrosPesquisado = "(" + filtro.DDD + ") " + filtro.NumeroTel;
 
                     string NomeInternoProduto = "WEB RASTREAMENTO SEARCH TELEFONE PF";
-                    Entidades.HistoricoPesquisa hist = SalvarHistoricoPesquisa("N", idProdutoPreco, "", parametrosPesquisado, "TELEFONE");
+                    Entidades.HistoricoPesquisa hist = SalvarHistoricoPesquisa("N", codigoItemProduto, "", parametrosPesquisado, "TELEFONE");
                     SalvarHistoricoFornecedor("N", hist.IdHistoricoConsulta, "CNENHUM REGISTRO ENCONTRADO.", NomeInternoProduto, "DNA");
 
                     lblDataConsulta.Text = DataBR.ToString("dd/MM/yyyy") + " às " + DataBR.ToString("HH:mm");
@@ -299,14 +299,14 @@ namespace DNA.Web.Sistema.Produto.Cadastral
 
         #region MÉTODOS PARA CONTROLE DAS CONSULTAS
 
-        private Entidades.HistoricoPesquisa SalvarHistoricoPesquisa(string pesquisaSucesso, int idProdutoPreco, string Observacao, string parametroUsadoPesquisa, string tipoParametroUsadoPesquisa)
+        private Entidades.HistoricoPesquisa SalvarHistoricoPesquisa(string pesquisaSucesso, string codigoItemProduto, string Observacao, string parametroUsadoPesquisa, string tipoParametroUsadoPesquisa)
         {
             try
             {
                 Entidades.HistoricoPesquisa hist = new Entidades.HistoricoPesquisa();
                 Negocios.HistoricoPesquisa n = new Negocios.HistoricoPesquisa();
 
-                hist.IdProdutoPreco = idProdutoPreco;
+                hist.CodigoItemProduto = codigoItemProduto;
                 hist.FiltroUtilizadoPesquisa = parametroUsadoPesquisa;
                 hist.IpOrigemConsulta = HttpContext.Current.Request.UserHostAddress.ToString();
                 hist.IdUsuarioConsulta = usuarioLogado.IdUsuario;

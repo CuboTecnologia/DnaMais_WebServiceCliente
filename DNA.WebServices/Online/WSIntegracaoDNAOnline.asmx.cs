@@ -156,16 +156,20 @@ namespace DNA.WebServices.Online
 
                 #endregion
 
-                string NomeInternoProduto = "WEBSERVICE RASTREAMENTO PF PRATA";
+                string CodigoProduto = "CST-WS-PF";
 
                 if (Autenticacao(loginUsuario, senhaUsuario))
                 {
+                    //TODO: Verificar como retornar o codigo do item de produto na validação de acesso do usuario para registrar na transacao
+
                     //Verificando inicialmente se o usuário tem permissão ao produto 
                     List<Entidades.Produto> listProd = new List<Entidades.Produto>();
-                    listProd = ListarProdutoSolicitadoByUsuario(((Entidades.Usuario)Session["ws_dnaonline_acesso"]).IdUsuario, NomeInternoProduto);
+                    listProd = ListarProdutoSolicitadoByUsuario(((Entidades.Usuario)Session["ws_dnaonline_acesso"]).IdUsuario, CodigoProduto);
 
                     if (listProd == null || listProd.Count == 0)
                     {
+                        #region Retorno de falta de permissão
+
                         retResponse.Controle.Codigo = "401";
                         retResponse.Controle.DataHora = DataBR.ToString();
                         retResponse.Controle.Mensagem = "HTTP/1.1 401 Unauthorized";
@@ -191,6 +195,8 @@ namespace DNA.WebServices.Online
                         retResponse.ResponseStatus.Errors.Add(ResponseError);
 
                         return retResponse;
+
+                        #endregion
                     }
                     else
                     {
@@ -198,6 +204,8 @@ namespace DNA.WebServices.Online
                         { return TestesDeIntegracaoPF(); }
                         else
                         {
+                            #region Executa Pesquisa
+
                             Negocios.Cadastral.WS.RastreamentoPFPrata n = new Negocios.Cadastral.WS.RastreamentoPFPrata();
 
                             Entidades.Cadastral.ResponsePFPrata retorno = new Entidades.Cadastral.ResponsePFPrata();
@@ -206,8 +214,8 @@ namespace DNA.WebServices.Online
 
                             if (retorno.DadosCadastrais.Nome.Trim().Equals("") && retorno.Emails.Count == 0 && retorno.Enderecos.Count == 0 && retorno.Telefones.Count == 0 && retorno.Vinculos.Count == 0)
                             {
-                                int idProdutoPreco = listProd.FirstOrDefault().IdPrecoProduto;
-                                Entidades.HistoricoPesquisa hist = SalvarHistoricoPesquisa("N", idProdutoPreco, "", numeroCPF, "CPF");
+                                string codigoItemProduto = "CST-WS-PF-CPF";
+                                Entidades.HistoricoPesquisa hist = SalvarHistoricoPesquisa("N", codigoItemProduto, "", numeroCPF, "CPF");
 
                                 retorno.Controle.Codigo = "204";
                                 retorno.Controle.DataHora = DataBR.ToString();
@@ -220,12 +228,14 @@ namespace DNA.WebServices.Online
                                 var xml = new StringWriter();
                                 xs.Serialize(xml, retorno, xns);
 
-                                SalvarHistoricoFornecedor("N", hist.IdHistoricoConsulta, xml.ToString(), NomeInternoProduto, "DNA");
+                                SalvarHistoricoFornecedor("N", hist.IdHistoricoConsulta, xml.ToString(), CodigoProduto, "DNA");
                             }
                             else
                             {
-                                int idProdutoPreco = listProd.FirstOrDefault().IdPrecoProduto;
-                                Entidades.HistoricoPesquisa hist = SalvarHistoricoPesquisa("S", idProdutoPreco, "", numeroCPF, "CPF");
+                                //TODO: Não localizei na tabela TRANSACAO_CONSULTA a coluna que armazenaria os parametros utilizados na busca
+
+                                string codigoItemProduto = listProd.FirstOrDefault().CodigoProduto;
+                                Entidades.HistoricoPesquisa hist = SalvarHistoricoPesquisa("S", codigoItemProduto, "", numeroCPF, "CPF");
 
                                 retorno.Controle.Codigo = "200";
                                 retorno.Controle.DataHora = DataBR.ToString();
@@ -237,18 +247,20 @@ namespace DNA.WebServices.Online
                                 var xs = new XmlSerializer(retorno.GetType());
                                 var xml = new StringWriter();
                                 xs.Serialize(xml, retorno, xns);
-
-                                SalvarHistoricoFornecedor("S", hist.IdHistoricoConsulta, xml.ToString(), NomeInternoProduto, "DNA");
+                                //TODO: SalvarHistoricoFornecedor - Não encontrado no modelo novo (Decidir se necessário) Justificativa para auditoria quando o cliente reclamar
+                                //SalvarHistoricoFornecedor("S", hist.IdHistoricoConsulta, xml.ToString(), CodigoProduto, "DNA");
                             }
 
-                            
-
                             return retorno;
+
+                            #endregion
                         }
                     }
                 }
                 else
                 {
+                    #region Falha no login
+
                     retResponse.Controle.Codigo = "401";
                     retResponse.Controle.DataHora = DataBR.ToString();
                     retResponse.Controle.Mensagem = "HTTP/1.1 401 Unauthorized";
@@ -278,6 +290,8 @@ namespace DNA.WebServices.Online
                     retResponse.ResponseStatus.Errors.Add(ResponseError);
 
                     return retResponse;
+
+                    #endregion
                 }
             }
             catch (Exception ex)
@@ -417,13 +431,13 @@ namespace DNA.WebServices.Online
 
                 #endregion
 
-                string NomeInternoProduto = "WEBSERVICE RASTREAMENTO PJ PRATA";
+                string codigoProduto = "CST-WS-PJ";
 
                 if (Autenticacao(loginUsuario, senhaUsuario))
                 {
                     //Verificando inicialmente se o usuário tem permissão ao produto 
                     List<Entidades.Produto> listProd = new List<Entidades.Produto>();
-                    listProd = ListarProdutoSolicitadoByUsuario(((Entidades.Usuario)Session["ws_dnaonline_acesso"]).IdUsuario, NomeInternoProduto);
+                    listProd = ListarProdutoSolicitadoByUsuario(((Entidades.Usuario)Session["ws_dnaonline_acesso"]).IdUsuario, codigoProduto);
 
                     if (listProd == null || listProd.Count == 0)
                     {
@@ -467,8 +481,9 @@ namespace DNA.WebServices.Online
 
                             if (retorno.CNAE.Count == 0 && retorno.Enderecos.Count == 0 && retorno.Telefones.Count == 0)
                             {
-                                int idProdutoPreco = listProd.FirstOrDefault().IdPrecoProduto;
-                                Entidades.HistoricoPesquisa hist = SalvarHistoricoPesquisa("N", idProdutoPreco, "", numeroCNPJ, "CNPJ");
+                                //TODO: Passar o codigo do item de produto mas ele nao esta sendo retornado da pesquisa de produtos do usuario
+                                string codigoItemProduto = "CST-WS-PJ-CPF";
+                                Entidades.HistoricoPesquisa hist = SalvarHistoricoPesquisa("N", codigoItemProduto, "", numeroCNPJ, "CNPJ");
 
                                 retorno.Controle.Codigo = "204";
                                 retorno.Controle.DataHora = DataBR.ToString();
@@ -477,16 +492,18 @@ namespace DNA.WebServices.Online
 
                                 var xns = new XmlSerializerNamespaces();
                                 xns.Add(string.Empty, string.Empty);
-                                var xs = new XmlSerializer(retorno.GetType());
+                                var xs = new XmlSerializer(retorno.GetType()); 
                                 var xml = new StringWriter();
                                 xs.Serialize(xml, retorno, xns);
 
-                                SalvarHistoricoFornecedor("N", hist.IdHistoricoConsulta, xml.ToString(), NomeInternoProduto, "DNA");
+                                //TODO: SalvarHistoricoFornecedor - Não encontrado no modelo novo (Decidir se necessário) Justificativa para auditoria quando o cliente reclamar
+                                //SalvarHistoricoFornecedor("N", hist.IdHistoricoConsulta, xml.ToString(), codigoProduto, "DNA");
                             }
                             else
                             {
-                                int idProdutoPreco = listProd.FirstOrDefault().IdPrecoProduto;
-                                Entidades.HistoricoPesquisa hist = SalvarHistoricoPesquisa("S", idProdutoPreco, "", numeroCNPJ, "CNPJ");
+                                //TODO: Passar o codigo do item de produto mas ele nao esta sendo retornado da pesquisa de produtos do usuario
+                                string codigoItemProduto = listProd.FirstOrDefault().CodigoProduto;
+                                Entidades.HistoricoPesquisa hist = SalvarHistoricoPesquisa("S", codigoItemProduto, "", numeroCNPJ, "CNPJ");
 
                                 retorno.Controle.Codigo = "200";
                                 retorno.Controle.DataHora = DataBR.ToString();
@@ -499,7 +516,8 @@ namespace DNA.WebServices.Online
                                 var xml = new StringWriter();
                                 xs.Serialize(xml, retorno, xns);
 
-                                SalvarHistoricoFornecedor("S", hist.IdHistoricoConsulta, xml.ToString(), NomeInternoProduto, "DNA");
+                                //TODO: SalvarHistoricoFornecedor - Não encontrado no modelo novo (Decidir se necessário) Justificativa para auditoria quando o cliente reclamar
+                                //SalvarHistoricoFornecedor("S", hist.IdHistoricoConsulta, xml.ToString(), codigoProduto, "DNA");
                             }
 
                             return retorno;
@@ -722,20 +740,20 @@ namespace DNA.WebServices.Online
 
                     retResponse.ResponseStatus.Errors.Add(ResponseError);
                 }
-                
+
 
                 if (retResponse.ResponseStatus.Errors != null && retResponse.ResponseStatus.Errors.Count > 0)
                 { return retResponse; }
 
                 #endregion
 
-                string NomeInternoProduto = "WEBSERVICE SEARCH TELEFONE PF";
+                string codigoProduto = "CST-WS-PF";
 
                 if (Autenticacao(loginUsuario, senhaUsuario))
                 {
                     //Verificando inicialmente se o usuário tem permissão ao produto 
                     List<Entidades.Produto> listProd = new List<Entidades.Produto>();
-                    listProd = ListarProdutoSolicitadoByUsuario(((Entidades.Usuario)Session["ws_dnaonline_acesso"]).IdUsuario, NomeInternoProduto);
+                    listProd = ListarProdutoSolicitadoByUsuario(((Entidades.Usuario)Session["ws_dnaonline_acesso"]).IdUsuario, codigoProduto);
 
                     if (listProd == null || listProd.Count == 0)
                     {
@@ -787,8 +805,8 @@ namespace DNA.WebServices.Online
 
                             if (retorno != null)
                             {
-                                int idProdutoPreco = listProd.FirstOrDefault().IdPrecoProduto;
-                                Entidades.HistoricoPesquisa hist = SalvarHistoricoPesquisa("S", idProdutoPreco, "", ValorParametrosUtilizadosPesquisa, ParametrosUtilizadosPesquisa);
+                                string codigoItemProduto = "CST-WS-PF-FONE";
+                                Entidades.HistoricoPesquisa hist = SalvarHistoricoPesquisa("S", codigoItemProduto, "", ValorParametrosUtilizadosPesquisa, ParametrosUtilizadosPesquisa);
 
                                 retorno.Controle.Codigo = "200";
                                 retorno.Controle.DataHora = DataBR.ToString();
@@ -801,12 +819,13 @@ namespace DNA.WebServices.Online
                                 var xml = new StringWriter();
                                 xs.Serialize(xml, retorno, xns);
 
-                                SalvarHistoricoFornecedor("S", hist.IdHistoricoConsulta, xml.ToString(), NomeInternoProduto, "DNA");
+                                //TODO: SalvarHistoricoFornecedor - Não encontrado no modelo novo (Decidir se necessário) Justificativa para auditoria quando o cliente reclamar
+                                //SalvarHistoricoFornecedor("S", hist.IdHistoricoConsulta, xml.ToString(), codigoProduto, "DNA");
                             }
                             else
                             {
-                                int idProdutoPreco = listProd.FirstOrDefault().IdPrecoProduto;
-                                Entidades.HistoricoPesquisa hist = SalvarHistoricoPesquisa("N", idProdutoPreco, "", ValorParametrosUtilizadosPesquisa, ParametrosUtilizadosPesquisa);
+                                string codigoProdutoPreco = listProd.FirstOrDefault().CodigoItemProduto;
+                                Entidades.HistoricoPesquisa hist = SalvarHistoricoPesquisa("N", codigoProdutoPreco, "", ValorParametrosUtilizadosPesquisa, ParametrosUtilizadosPesquisa);
 
                                 retorno = new Entidades.Cadastral.ResponseSearchTelefonePF_WS();
                                 retorno.Controle.Codigo = "204";
@@ -814,7 +833,8 @@ namespace DNA.WebServices.Online
                                 retorno.Controle.Mensagem = "No Content";
                                 retorno.Controle.Protocolo = hist.ProtocoloRetorno;
 
-                                SalvarHistoricoFornecedor("N", hist.IdHistoricoConsulta, "NENHUM REGISTRO ENCONTRADO.", NomeInternoProduto, "DNA");
+                                //TODO: SalvarHistoricoFornecedor - Não encontrado no modelo novo (Decidir se necessário) Justificativa para auditoria quando o cliente reclamar
+                                //SalvarHistoricoFornecedor("N", hist.IdHistoricoConsulta, "NENHUM REGISTRO ENCONTRADO.", codigoProduto, "DNA");
                             }
 
                             return retorno;
@@ -858,7 +878,7 @@ namespace DNA.WebServices.Online
             {
                 throw ex;
             }
-                
+
         }
 
         [return: XmlRoot(ElementName = "ResponseSearchTelefonePJ")]
@@ -1157,8 +1177,8 @@ namespace DNA.WebServices.Online
 
                             if (retorno != null)
                             {
-                                int idProdutoPreco = listProd.FirstOrDefault().IdPrecoProduto;
-                                Entidades.HistoricoPesquisa hist = SalvarHistoricoPesquisa("S", idProdutoPreco, "", ValorParametrosUtilizadosPesquisa, ParametrosUtilizadosPesquisa);
+                                string codigoProdutoPreco = listProd.FirstOrDefault().CodigoItemProduto;
+                                Entidades.HistoricoPesquisa hist = SalvarHistoricoPesquisa("S", codigoProdutoPreco, "", ValorParametrosUtilizadosPesquisa, ParametrosUtilizadosPesquisa);
 
                                 retorno.Controle.Codigo = "200";
                                 retorno.Controle.DataHora = DataBR.ToString();
@@ -1171,12 +1191,13 @@ namespace DNA.WebServices.Online
                                 var xml = new StringWriter();
                                 xs.Serialize(xml, retorno, xns);
 
-                                SalvarHistoricoFornecedor("S", hist.IdHistoricoConsulta, xml.ToString(), NomeInternoProduto, "DNA");
+                                //TODO: SalvarHistoricoFornecedor - Não encontrado no modelo novo (Decidir se necessário) Justificativa para auditoria quando o cliente reclamar
+                                //SalvarHistoricoFornecedor("S", hist.IdHistoricoConsulta, xml.ToString(), NomeInternoProduto, "DNA");
                             }
                             else
                             {
-                                int idProdutoPreco = listProd.FirstOrDefault().IdPrecoProduto;
-                                Entidades.HistoricoPesquisa hist = SalvarHistoricoPesquisa("N", idProdutoPreco, "", ValorParametrosUtilizadosPesquisa, ParametrosUtilizadosPesquisa);
+                                string codigoProdutoPreco = listProd.FirstOrDefault().CodigoItemProduto;
+                                Entidades.HistoricoPesquisa hist = SalvarHistoricoPesquisa("N", codigoProdutoPreco, "", ValorParametrosUtilizadosPesquisa, ParametrosUtilizadosPesquisa);
 
                                 retorno = new Entidades.Cadastral.ResponseSearchTelefonePJ_WS();
                                 retorno.Controle.Codigo = "204";
@@ -1184,7 +1205,8 @@ namespace DNA.WebServices.Online
                                 retorno.Controle.Mensagem = "No Content";
                                 retorno.Controle.Protocolo = hist.ProtocoloRetorno;
 
-                                SalvarHistoricoFornecedor("N", hist.IdHistoricoConsulta, "NENHUM REGISTRO ENCONTRADO.", NomeInternoProduto, "DNA");
+                                //TODO: SalvarHistoricoFornecedor - Não encontrado no modelo novo (Decidir se necessário) Justificativa para auditoria quando o cliente reclamar
+                                //SalvarHistoricoFornecedor("N", hist.IdHistoricoConsulta, "NENHUM REGISTRO ENCONTRADO.", NomeInternoProduto, "DNA");
                             }
 
                             return retorno;
@@ -1233,7 +1255,7 @@ namespace DNA.WebServices.Online
 
         [return: XmlRoot(ElementName = "ResponseSearchPF")]
         [WebMethod(Description = "Retorna os dados cadastrais dos dados informados no filtro", EnableSession = true)]
-        public Entidades.Cadastral.ResponseSearchPF_WS RastreamentoSearchPF(string loginUsuario, string senhaUsuario, string nomeCompleto, 
+        public Entidades.Cadastral.ResponseSearchPF_WS RastreamentoSearchPF(string loginUsuario, string senhaUsuario, string nomeCompleto,
                                                                             string UF, string nomeMunicipio, string dataNascimento, string nomeMae)
         {
             try
@@ -1421,7 +1443,7 @@ namespace DNA.WebServices.Online
                         {
                             var validaData = DateTime.Parse(dataNascimento);
                         }
-                        catch 
+                        catch
                         {
                             retResponse.Controle.Codigo = "400";
                             retResponse.Controle.DataHora = DataBR.ToString();
@@ -1494,8 +1516,8 @@ namespace DNA.WebServices.Online
                     else
                     {
                         //if (numeroCPF.Trim().Equals("00000000000"))
-                        if(0==1)
-                        { return null;} //TestesDeIntegracaoPF(); }
+                        if (0 == 1)
+                        { return null; } //TestesDeIntegracaoPF(); }
                         else
                         {
                             Negocios.Cadastral.WS.RastreamentoSearchPF n = new Negocios.Cadastral.WS.RastreamentoSearchPF();
@@ -1545,8 +1567,8 @@ namespace DNA.WebServices.Online
 
                             if (retorno != null)
                             {
-                                int idProdutoPreco = listProd.FirstOrDefault().IdPrecoProduto;
-                                Entidades.HistoricoPesquisa hist = SalvarHistoricoPesquisa("S", idProdutoPreco, "", ValorParametrosUtilizadosPesquisa, ParametrosUtilizadosPesquisa);
+                                string codigoProdutoPreco = listProd.FirstOrDefault().CodigoItemProduto;
+                                Entidades.HistoricoPesquisa hist = SalvarHistoricoPesquisa("S", codigoProdutoPreco, "", ValorParametrosUtilizadosPesquisa, ParametrosUtilizadosPesquisa);
 
                                 retorno.Controle.Codigo = "200";
                                 retorno.Controle.DataHora = DataBR.ToString();
@@ -1559,12 +1581,13 @@ namespace DNA.WebServices.Online
                                 var xml = new StringWriter();
                                 xs.Serialize(xml, retorno, xns);
 
-                                SalvarHistoricoFornecedor("S", hist.IdHistoricoConsulta, xml.ToString(), NomeInternoProduto, "DNA");
+                                //TODO: SalvarHistoricoFornecedor - Não encontrado no modelo novo (Decidir se necessário) Justificativa para auditoria quando o cliente reclamar
+                                //SalvarHistoricoFornecedor("S", hist.IdHistoricoConsulta, xml.ToString(), NomeInternoProduto, "DNA");
                             }
                             else
                             {
-                                int idProdutoPreco = listProd.FirstOrDefault().IdPrecoProduto;
-                                Entidades.HistoricoPesquisa hist = SalvarHistoricoPesquisa("N", idProdutoPreco, "", ValorParametrosUtilizadosPesquisa, ParametrosUtilizadosPesquisa);
+                                string codigoProdutoPreco = listProd.FirstOrDefault().CodigoItemProduto;
+                                Entidades.HistoricoPesquisa hist = SalvarHistoricoPesquisa("N", codigoProdutoPreco, "", ValorParametrosUtilizadosPesquisa, ParametrosUtilizadosPesquisa);
 
                                 retorno = new Entidades.Cadastral.ResponseSearchPF_WS();
                                 retorno.Controle.Codigo = "204";
@@ -1572,7 +1595,8 @@ namespace DNA.WebServices.Online
                                 retorno.Controle.Mensagem = "No Content";
                                 retorno.Controle.Protocolo = hist.ProtocoloRetorno;
 
-                                SalvarHistoricoFornecedor("N", hist.IdHistoricoConsulta, "NENHUM REGISTRO ENCONTRADO.", NomeInternoProduto, "DNA");
+                                //TODO: SalvarHistoricoFornecedor - Não encontrado no modelo novo (Decidir se necessário) Justificativa para auditoria quando o cliente reclamar
+                                //SalvarHistoricoFornecedor("N", hist.IdHistoricoConsulta, "NENHUM REGISTRO ENCONTRADO.", NomeInternoProduto, "DNA");
                             }
 
                             return retorno;
@@ -1765,8 +1789,8 @@ namespace DNA.WebServices.Online
 
                             if (retorno != null)
                             {
-                                int idProdutoPreco = listProd.FirstOrDefault().IdPrecoProduto;
-                                Entidades.HistoricoPesquisa hist = SalvarHistoricoPesquisa("S", idProdutoPreco, "", ParametrosUtilizadosPesquisa, ValorParametrosUtilizadosPesquisa);
+                                string codigoProdutoPreco = listProd.FirstOrDefault().CodigoItemProduto;
+                                Entidades.HistoricoPesquisa hist = SalvarHistoricoPesquisa("S", codigoProdutoPreco, "", ParametrosUtilizadosPesquisa, ValorParametrosUtilizadosPesquisa);
 
                                 retorno.Controle.Codigo = "200";
                                 retorno.Controle.DataHora = DataBR.ToString();
@@ -1779,19 +1803,21 @@ namespace DNA.WebServices.Online
                                 var xml = new StringWriter();
                                 xs.Serialize(xml, retorno, xns);
 
-                                SalvarHistoricoFornecedor("S", hist.IdHistoricoConsulta, xml.ToString(), NomeInternoProduto, "DNA");
+                                //TODO: SalvarHistoricoFornecedor - Não encontrado no modelo novo (Decidir se necessário) Justificativa para auditoria quando o cliente reclamar
+                                //SalvarHistoricoFornecedor("S", hist.IdHistoricoConsulta, xml.ToString(), NomeInternoProduto, "DNA");
                             }
                             else
                             {
-                                int idProdutoPreco = listProd.FirstOrDefault().IdPrecoProduto;
-                                Entidades.HistoricoPesquisa hist = SalvarHistoricoPesquisa("N", idProdutoPreco, "", ParametrosUtilizadosPesquisa, ValorParametrosUtilizadosPesquisa);
+                                string codigoProdutoPreco = listProd.FirstOrDefault().CodigoItemProduto;
+                                Entidades.HistoricoPesquisa hist = SalvarHistoricoPesquisa("N", codigoProdutoPreco, "", ParametrosUtilizadosPesquisa, ValorParametrosUtilizadosPesquisa);
 
                                 retorno.Controle.Codigo = "204";
                                 retorno.Controle.DataHora = DataBR.ToString();
                                 retorno.Controle.Mensagem = "No Content";
                                 retorno.Controle.Protocolo = hist.ProtocoloRetorno;
 
-                                SalvarHistoricoFornecedor("N", hist.IdHistoricoConsulta, "NENHUM REGISTRO ENCONTRADO.", NomeInternoProduto, "DNA");
+                                //TODO: SalvarHistoricoFornecedor - Não encontrado no modelo novo (Decidir se necessário) Justificativa para auditoria quando o cliente reclamar
+                                //SalvarHistoricoFornecedor("N", hist.IdHistoricoConsulta, "NENHUM REGISTRO ENCONTRADO.", NomeInternoProduto, "DNA");
                             }
 
                             return retorno;
@@ -1991,16 +2017,23 @@ namespace DNA.WebServices.Online
 
         #region MÉTODOS PARA CONTROLE DAS CONSULTAS
 
-        private Entidades.HistoricoPesquisa SalvarHistoricoPesquisa(string pesquisaSucesso, int idProdutoPreco, string Observacao, string parametroUsadoPesquisa, string tipoParametroUsadoPesquisa)
+        private Entidades.HistoricoPesquisa SalvarHistoricoPesquisa(string pesquisaSucesso, string codigoProdutoPreco, string Observacao, string parametroUsadoPesquisa, string tipoParametroUsadoPesquisa)
         {
             try
             {
                 Entidades.HistoricoPesquisa hist = new Entidades.HistoricoPesquisa();
                 Negocios.HistoricoPesquisa n = new Negocios.HistoricoPesquisa();
 
-                hist.IdProdutoPreco = idProdutoPreco;
+                hist.CodigoItemProduto = codigoProdutoPreco;
                 hist.FiltroUtilizadoPesquisa = parametroUsadoPesquisa;
-                hist.IpOrigemConsulta = HttpContext.Current.Request.UserHostAddress.ToString();
+
+                try
+                {
+                    hist.IpOrigemConsulta = HttpContext.Current.Request.UserHostAddress.ToString();
+                }
+                catch (Exception)
+                {}
+
                 hist.IdUsuarioConsulta = ((Entidades.Usuario)Session["ws_dnaonline_acesso"]).IdUsuario;
                 hist.Observacao = Observacao;
                 hist.FlagSucesso = pesquisaSucesso;
@@ -2070,7 +2103,7 @@ namespace DNA.WebServices.Online
             }
         }
 
-        private List<Entidades.Produto> ListarProdutoSolicitadoByUsuario(int idUsuario, string nomeProduto)
+        private List<Entidades.Produto> ListarProdutoSolicitadoByUsuario(int idUsuario, string codigoProduto)
         {
             try
             {
@@ -2079,10 +2112,11 @@ namespace DNA.WebServices.Online
                 Entidades.Usuario u = new Entidades.Usuario();
 
                 u.IdUsuario = idUsuario;
+                u.Produtos.Add(new Entidades.Produto() { CodigoProduto = codigoProduto });
 
                 l = n.ListarByIdUsuario(u);
 
-                return l.Where(p => p.NomeInterno.Trim().ToUpper().Equals(nomeProduto.ToUpper())).ToList();
+                return l.Where(p => p.CodigoProduto.Trim().ToUpper().Equals(codigoProduto.ToUpper())).ToList();
             }
             catch (Exception ex)
             {

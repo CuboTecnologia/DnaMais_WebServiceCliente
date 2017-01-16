@@ -10,7 +10,7 @@ namespace DNA.Entidades.Relatorio
         public int IdUsuarioLogado { get; set; }
         public int IdCliente { get; set; }
         public int IdHitoricoPesquisa { get; set; }
-        public int IdProdutoPreco { get; set; }
+        public string CodigoItemProduto { get; set; }
         public DateTime? DataInicialPesquisa { get; set; }
         public DateTime? DataFinalPesquisa { get; set; }
         public string ParametroPesquisado { get; set; }
@@ -21,7 +21,7 @@ namespace DNA.Entidades.Relatorio
             this.IdCliente = 0;
             this.IdUsuarioLogado = 0;
             this.IdHitoricoPesquisa = 0;
-            this.IdProdutoPreco = 0;
+            this.CodigoItemProduto = string.Empty;
             this.ParametroPesquisado = string.Empty;
             this.TipoParametroPesquisado = string.Empty;
         }
